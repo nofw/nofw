@@ -36,7 +36,7 @@ Make sure the following are installed:
 
 This skeleton is heavily inspired by @Swader's [nofw](https://github.com/Swader/nofw)
 and his [The framework is dead, long live the framework](http://2016.websummercamp.com/PHP/The-framework-is-dead-long-live-the-framework)
-workshop at the [Web Summer Camp](http://2016.websummercamp.com) in 2016.
+workshop presented at the [Web Summer Camp](http://2016.websummercamp.com) in 2016.
 
 
 ## License
