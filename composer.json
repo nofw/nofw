@@ -20,7 +20,9 @@
         "middlewares/fast-route": "^0.3.0",
         "middlewares/utils": "^0.8.0",
         "filp/whoops": "^2.1",
-        "middlewares/whoops": "^0.3.0"
+        "middlewares/whoops": "^0.3.0",
+        "twig/twig": "^2.1",
+        "doctrine/annotations": "^1.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0"

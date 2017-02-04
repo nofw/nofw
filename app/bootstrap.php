@@ -2,14 +2,15 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-define('APPLICATION_ENV', getenv('APPLICATION_ENV') ?: 'prod');
+$env = getenv('APPLICATION_ENV') ?: 'prod';
+define('APP_ROOT', __DIR__);
 
 $containerBuilder = (new \DI\ContainerBuilder())
-    //->useAnnotations(true) // TODO: composer require doctrine/annotations
+    ->useAnnotations(true)
     ->useAutowiring(true)
     ->addDefinitions(__DIR__.'/config.php')
 ;
 
-require __DIR__.'/env/'.APPLICATION_ENV.'.php';
+require __DIR__.'/env/'.$env.'.php';
 
 $container = $containerBuilder->build();

@@ -2,6 +2,14 @@
 
 return [
     'env' => \DI\env('APPLICATION_ENV', 'prod'),
+    'debug' => \DI\env(
+        'APPLICATION_DEBUG',
+        \DI\factory(
+            function(string $env) {
+                return 'dev' === $env;
+            }
+        )->parameter('env', \DI\get('env'))
+    ),
     'middlewares' => [
         \DI\get(\Middlewares\Whoops::class),
         \DI\get(\Middlewares\FastRoute::class),
@@ -21,13 +29,13 @@ return [
         return $whoops;
     },
     \Middlewares\Whoops::class => \DI\object()->constructor(\DI\get(\Whoops\Run::class)),
-    \Nofw\Infrastructure\Whoops\ProductionHandler::class => \DI\object()->constructor(\DI\get('env')),
+    \Nofw\Infrastructure\Whoops\ProductionHandler::class => \DI\object()->constructorParameter('debug', \DI\get('debug')),
     'dispatcher' => \DI\object(\Middlewares\Utils\Dispatcher::class)->constructor(\DI\get('middlewares')),
     \FastRoute\Dispatcher::class => \DI\factory('FastRoute\\cachedDispatcher')
         ->parameter(
             'routeDefinitionCallback',
             function(\FastRoute\RouteCollector $r) {
-                $routeList = require __DIR__.'/routes.php';
+                $routeList = require APP_ROOT.'/routes.php';
 
                 foreach ($routeList as $routeDef) {
                     $r->addRoute($routeDef[0], $routeDef[1], $routeDef[2]);
@@ -36,10 +44,21 @@ return [
         )
         ->parameter(
             'options',
-            [
-                'cacheDisabled' => APPLICATION_ENV == 'dev',
-                'cacheFile' => __DIR__.'/../var/cache/router.php',
-            ]
+            \DI\factory(function(bool $debug) {
+                return [
+                    'cacheDisabled' => $debug,
+                    'cacheFile' => APP_ROOT.'/../var/cache/router.php',
+                ];
+            })->parameter('debug', \DI\get('debug'))
         )
     ,
+   \Twig_Environment::class => \DI\object()->constructor(
+       \DI\object(\Twig_Loader_Filesystem::class)->constructor([APP_ROOT.'/../src/App/View/']),
+       \DI\factory(function($debug) {
+           return [
+               'debug' => $debug,
+               'cache' => $debug ? false : APP_ROOT.'/../var/cache/twig/',
+           ];
+       })->parameter('debug', \DI\get('debug'))
+   ),
 ];

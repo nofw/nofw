@@ -9,23 +9,29 @@ use Whoops\Handler\Handler;
 class ProductionHandler extends Handler
 {
     /**
-     * @var string
+     * @var \Twig_Environment
      */
-    private $env;
+    private $twig;
 
-    public function __construct(string $env)
+    /**
+     * @var bool
+     */
+    private $debug = false;
+
+    public function __construct(\Twig_Environment $twig, bool $debug)
     {
-        $this->env = $env;
+        $this->twig = $twig;
+        $this->debug = $debug;
     }
 
     public function handle(): int
     {
-        if ('prod' === $this->env) {
-            echo '<h1>It doesnt work!</h1>';
-
-            return Handler::QUIT;
+        if ($this->debug) {
+            return Handler::DONE;
         }
 
-        return Handler::DONE;
+        echo $this->twig->render('error/error500.html.twig');
+
+        return Handler::QUIT;
     }
 }
