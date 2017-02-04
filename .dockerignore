@@ -1,5 +1,6 @@
 *
 
+!composer.*
 !etc/
-!web/
 !LICENSE
+!web/

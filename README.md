@@ -1,6 +1,6 @@
 # No framework
 
-**An opinionated application skeleton to replace frameworks**
+**An opinionated application skeleton to replace frameworks.**
 
 
 ## Components

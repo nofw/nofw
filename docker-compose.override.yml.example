@@ -4,3 +4,10 @@ services:
     app:
         ports:
             - 8080:80
+
+    composer:
+        volumes:
+            - $HOME/.composer:/composer
+            - $SSH_AUTH_SOCK:/tmp/ssh.sock
+        environment:
+            SSH_AUTH_SOCK: /tmp/ssh.sock
