@@ -11,6 +11,8 @@ RUN set -xe \
         zlib1g-dev \
     --no-install-recommends && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-install -j$(nproc) zip \
+    && pecl install apcu \
+    && docker-php-ext-enable apcu \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer --version=${COMPOSER_VERSION} \
     && mkdir -p $COMPOSER_HOME \
     && composer global require --quiet "hirak/prestissimo:^0.3"
@@ -21,7 +23,11 @@ RUN set -xe \
     && a2enmod rewrite \
     && rm -rf /var/www/html
 
+# Install dependencies
 COPY composer.json composer.lock /var/www/
 RUN composer install --prefer-dist --no-dev --no-interaction
 
 COPY . /var/www
+
+ENV APPLICATION_ENV prod
+RUN mkdir -p var/cache && bin/cache

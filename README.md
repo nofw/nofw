@@ -9,10 +9,6 @@ No framework uses the following components:
 
 - Router: [nikic/fast-route](https://github.com/nikic/FastRoute)
 - DI Container: [php-di/php-di](https://github.com/PHP-DI/PHP-DI)
-- Template Engine: [twig/twig](http://twig.sensiolabs.org/)
-- Logging: [Monolog](https://github.com/Seldaek/monolog)
-- Error page: [Whoops](http://filp.github.io/whoops/)
-- Environment config: [PHP dotenv](https://github.com/vlucas/phpdotenv)
 
 
 ## What else

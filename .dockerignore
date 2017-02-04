@@ -1,6 +1,9 @@
 *
 
+!app/
+!bin/
 !composer.*
 !etc/
 !LICENSE
+!src/
 !web/

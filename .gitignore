@@ -1,2 +1,7 @@
+/app/config.local.php
 /docker-compose.override.yml
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
 /vendor/

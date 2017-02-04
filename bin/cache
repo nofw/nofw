@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+define('APPLICATION_ENV', 'prod');
+
+require __DIR__.'/../app/bootstrap.php';
+
+// Load router for the first time to initialize cache
+$router = $container->get(\FastRoute\Dispatcher::class);
