@@ -3,6 +3,27 @@
 **No framework at all!**
 
 
+## Quick start
+
+``` bash
+$ cp docker-compose.override.yml.example docker-compose.override.yml
+$ make setup
+$ make start
+$ make install
+```
+
+You should have the app running on localhost, port 8080.
+
+
+## Recommended development environment
+
+Make sure the following are installed:
+
+- latest [Docker](https://www.docker.com/) (1.13.0 at the moment)
+- latest [Docker Compose](https://docs.docker.com/compose/) (1.10.0 at the moment)
+- make
+
+
 ## Components
 
 No framework uses the following components:
@@ -21,15 +42,6 @@ No framework uses the following components:
 Worth mentioning that 100% of any building, caching happens only at container build time, no issues like [this](http://stackoverflow.com/questions/38777550/recompile-symfony-container-manually).
 
 [Bootstrap 4](https://v4-alpha.getbootstrap.com/) is used as the frontend framework.
-
-
-## Recommended development environment
-
-Make sure the following are installed:
-
-- latest [Docker](https://www.docker.com/) (1.13.0 at the moment)
-- latest [Docker Compose](https://docs.docker.com/compose/) (1.10.0 at the moment)
-- make
 
 
 ## Credits
