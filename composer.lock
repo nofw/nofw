@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e0d47662117cf1b2d207bb52b23fdd0",
+    "content-hash": "e8c69825350ffb5b0870da082acc1dea",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -102,6 +102,208 @@
                 "caching"
             ],
             "time": "2016-10-29T11:16:17+00:00"
+        },
+        {
+            "name": "http-interop/http-factory",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/http-interop/http-factory.git",
+                "reference": "403aec5f2451ff83b5ffffea0bfdb588502add3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/http-interop/http-factory/zipball/403aec5f2451ff83b5ffffea0bfdb588502add3e",
+                "reference": "403aec5f2451ff83b5ffffea0bfdb588502add3e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Http\\Factory\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-11-08T00:10:33+00:00"
+        },
+        {
+            "name": "http-interop/http-middleware",
+            "version": "0.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/http-interop/http-middleware.git",
+                "reference": "9a801fe60e70d5d608b61d56b2dcde29516c81b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/http-interop/http-middleware/zipball/9a801fe60e70d5d608b61d56b2dcde29516c81b9",
+                "reference": "9a801fe60e70d5d608b61d56b2dcde29516c81b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Http\\ServerMiddleware\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side middleware",
+            "keywords": [
+                "factory",
+                "http",
+                "middleware",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2017-01-14T15:23:42+00:00"
+        },
+        {
+            "name": "middlewares/fast-route",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/middlewares/fast-route.git",
+                "reference": "4b08d79aef825292774eddd9b58b4d1d23a7fcfe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/middlewares/fast-route/zipball/4b08d79aef825292774eddd9b58b4d1d23a7fcfe",
+                "reference": "4b08d79aef825292774eddd9b58b4d1d23a7fcfe",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-middleware": "^0.4",
+                "middlewares/utils": "~0.8",
+                "nikic/fast-route": "^1.0",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpunit/phpunit": "^5.5",
+                "squizlabs/php_codesniffer": "^2.7",
+                "zendframework/zend-diactoros": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Middlewares\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Middleware to use FastRoute",
+            "homepage": "https://github.com/middlewares/fast-route",
+            "keywords": [
+                "FastRoute",
+                "fast-route",
+                "http",
+                "middleware",
+                "psr-15",
+                "psr-7",
+                "router",
+                "server"
+            ],
+            "time": "2016-12-26T09:58:31+00:00"
+        },
+        {
+            "name": "middlewares/utils",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/middlewares/utils.git",
+                "reference": "eed3bf9d3eeb478d2fecba443bfcdb51eb0a5c67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/middlewares/utils/zipball/eed3bf9d3eeb478d2fecba443bfcdb51eb0a5c67",
+                "reference": "eed3bf9d3eeb478d2fecba443bfcdb51eb0a5c67",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-factory": "^0.2",
+                "http-interop/http-middleware": "^0.4",
+                "php": "^5.6 || ^7.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "guzzlehttp/psr7": "^1.3",
+                "phpunit/phpunit": "^5.5",
+                "slim/slim": "^3.5",
+                "squizlabs/php_codesniffer": "^2.7",
+                "zendframework/zend-diactoros": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Middlewares\\Utils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common utils to create PSR-15 middleware packages",
+            "homepage": "https://github.com/middlewares/utils",
+            "keywords": [
+                "http",
+                "middleware",
+                "psr-15",
+                "psr-7"
+            ],
+            "time": "2016-12-22T19:25:17+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -285,6 +487,106 @@
                 "reflection"
             ],
             "time": "2015-11-29T10:34:25+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "zendframework/zend-diactoros",
+            "version": "1.3.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-diactoros.git",
+                "reference": "83e8d98b9915de76c659ce27d683c02a0f99fa90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/83e8d98b9915de76c659ce27d683c02a0f99fa90",
+                "reference": "83e8d98b9915de76c659ce27d683c02a0f99fa90",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "~1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.6 || ^5.5",
+                "zendframework/zend-coding-standard": "~1.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev",
+                    "dev-develop": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "homepage": "https://github.com/zendframework/zend-diactoros",
+            "keywords": [
+                "http",
+                "psr",
+                "psr-7"
+            ],
+            "time": "2017-01-23T04:53:24+00:00"
         }
     ],
     "packages-dev": [

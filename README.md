@@ -9,6 +9,8 @@ No framework uses the following components:
 
 - Router: [nikic/fast-route](https://github.com/nikic/FastRoute)
 - DI Container: [php-di/php-di](https://github.com/PHP-DI/PHP-DI)
+- PSR-7: [zendframework/zend-diactoros](https://github.com/zendframework/zend-diactoros)
+- PSR-15: [middlewares/*](https://github.com/middlewares)
 
 
 ## What else
