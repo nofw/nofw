@@ -1,6 +1,6 @@
 # No framework
 
-**An opinionated application skeleton to replace frameworks.**
+**No framework at all!**
 
 
 ## Components
@@ -35,6 +35,8 @@ Make sure the following are installed:
 This skeleton is heavily inspired by @Swader's [nofw](https://github.com/Swader/nofw)
 and his [The framework is dead, long live the framework](http://2016.websummercamp.com/PHP/The-framework-is-dead-long-live-the-framework)
 workshop presented at the [Web Summer Camp](http://2016.websummercamp.com) in 2016.
+
+Phil Sturgeon also has an interesting [article](https://philsturgeon.uk/php/2014/01/13/the-framework-is-dead-long-live-the-framework/) about the topic.
 
 
 ## License
