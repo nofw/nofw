@@ -11,7 +11,9 @@ return [
         )->parameter('env', \DI\get('env'))
     ),
     'middlewares' => [
+        \DI\get(\Nofw\Infrastructure\Http\Middleware\ErrorPageContent::class),
         \DI\get(\Middlewares\Whoops::class),
+        \DI\get(\Nofw\Infrastructure\Http\Middleware\HttpException::class),
         \DI\get(\Middlewares\FastRoute::class),
     ],
     \Middlewares\FastRoute::class => \DI\object()

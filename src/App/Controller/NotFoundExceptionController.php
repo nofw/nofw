@@ -2,20 +2,14 @@
 
 namespace Nofw\App\Controller;
 
+use Nofw\Infrastructure\Http\Exception\NotFoundException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response\HtmlResponse;
 
-final class HomeController
+final class NotFoundExceptionController
 {
-    /**
-     * @Inject
-     * @var \Twig_Environment
-     */
-    private $twig;
-
     public function __invoke(ServerRequestInterface $request): ResponseInterface
     {
-        return new HtmlResponse($this->twig->render('home.html.twig'));
+        throw new NotFoundException();
     }
 }

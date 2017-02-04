@@ -11,7 +11,7 @@ No framework uses the following components:
 - DI Container: [php-di/php-di](https://github.com/PHP-DI/PHP-DI)
 - PSR-7: [zendframework/zend-diactoros](https://github.com/zendframework/zend-diactoros)
 - PSR-15: [middlewares/*](https://github.com/middlewares)
-
+- Template Engine: [Twig](http://twig.sensiolabs.org/)
 
 ## What else
 
