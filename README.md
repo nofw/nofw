@@ -16,11 +16,9 @@ No framework uses the following components:
 
 ## What else?
 
-[Docker](https://www.docker.com/) for development and a production ready Docker image are included. For simplicity,
-they are both PHP+Apache based images, in production PHP-FPM and Nginx are recommended.
+[Docker](https://www.docker.com/) for development and a production ready Docker image are included. For simplicity, they are both PHP+Apache based images, in production PHP-FPM and Nginx are recommended.
 
-Worth mentioning that 100% of any building, caching happens only at container build time,
-no issues like [this](http://stackoverflow.com/questions/38777550/recompile-symfony-container-manually).
+Worth mentioning that 100% of any building, caching happens only at container build time, no issues like [this](http://stackoverflow.com/questions/38777550/recompile-symfony-container-manually).
 
 [Bootstrap 4](https://v4-alpha.getbootstrap.com/) is used as the frontend framework.
 
@@ -36,9 +34,7 @@ Make sure the following are installed:
 
 ## Credits
 
-This skeleton is heavily inspired by @Swader's [nofw](https://github.com/Swader/nofw)
-and his [The framework is dead, long live the framework](http://2016.websummercamp.com/PHP/The-framework-is-dead-long-live-the-framework)
-workshop presented at the [Web Summer Camp](http://2016.websummercamp.com) in 2016.
+This skeleton is heavily inspired by @Swader's [nofw](https://github.com/Swader/nofw) and his [The framework is dead, long live the framework](http://2016.websummercamp.com/PHP/The-framework-is-dead-long-live-the-framework) workshop presented at the [Web Summer Camp](http://2016.websummercamp.com) in 2016.
 
 Phil Sturgeon also has an interesting [article](https://philsturgeon.uk/php/2014/01/13/the-framework-is-dead-long-live-the-framework/) about the topic.
 
