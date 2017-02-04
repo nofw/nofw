@@ -13,10 +13,14 @@ No framework uses the following components:
 - PSR-15: [middlewares/*](https://github.com/middlewares)
 - Template Engine: [Twig](http://twig.sensiolabs.org/)
 
-## What else
+
+## What else?
 
 [Docker](https://www.docker.com/) for development and a production ready Docker image are included. For simplicity,
 they are both PHP+Apache based images, in production PHP-FPM and Nginx are recommended.
+
+Worth mentioning that 100% of any building, caching happens only at container build time,
+no issues like [this](http://stackoverflow.com/questions/38777550/recompile-symfony-container-manually).
 
 [Bootstrap 4](https://v4-alpha.getbootstrap.com/) is used as the frontend framework.
 
