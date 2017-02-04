@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-define('APPLICATION_ENV', 'prod');
+putenv('APPLICATION_ENV=prod');
 
 require __DIR__.'/../app/bootstrap.php';
 
