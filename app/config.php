@@ -10,6 +10,9 @@ return [
             }
         )->parameter('env', \DI\get('env'))
     ),
+    'view_paths' => [
+        APP_ROOT.'/../src/App/View/',
+    ],
     'middlewares' => [
         \DI\get(\Nofw\Infrastructure\Http\Middleware\ErrorPageContent::class),
         \DI\get(\Middlewares\Whoops::class),
@@ -55,7 +58,7 @@ return [
         )
     ,
    \Twig_Environment::class => \DI\object()->constructor(
-       \DI\object(\Twig_Loader_Filesystem::class)->constructor([APP_ROOT.'/../src/App/View/']),
+       \DI\object(\Twig_Loader_Filesystem::class)->constructor(\DI\get('view_paths')),
        \DI\factory(function($debug) {
            return [
                'debug' => $debug,

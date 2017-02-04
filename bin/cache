@@ -7,3 +7,21 @@ require __DIR__.'/../app/bootstrap.php';
 
 // Load router for the first time to initialize cache
 $router = $container->get(\FastRoute\Dispatcher::class);
+
+$viewPaths = $container->get('view_paths');
+$twig = $container->get(\Twig_Environment::class);
+
+// Iterate over all templates to build cache
+foreach ($viewPaths as $path) {
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($path),
+        RecursiveIteratorIterator::LEAVES_ONLY
+    );
+
+    foreach ($files as $file) {
+        // Force compilation
+        if ($file->isFile()) {
+            $twig->loadTemplate(str_replace(rtrim($path, '/').'/', '', $file));
+        }
+    }
+}
