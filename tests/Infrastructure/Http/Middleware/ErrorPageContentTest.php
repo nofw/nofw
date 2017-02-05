@@ -65,7 +65,7 @@ final class ErrorPageContentTest extends TestCase
         $this->assertEquals($body, (string) $response->getBody());
     }
 
-    public function errorProvider()
+    public function errorProvider(): array
     {
         return [
             [404, 'error/error404.html.twig', '404'],
