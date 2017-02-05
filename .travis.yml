@@ -9,8 +9,6 @@ cache:
 php:
     - 7.1
 
-install:
-    - travis_retry composer install --prefer-dist --no-interaction
-
-script:
-    - vendor/bin/phpunit
+before_install: pecl install apcu
+install: travis_retry composer install --prefer-dist --no-interaction
+script: vendor/bin/phpunit
