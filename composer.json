@@ -22,7 +22,8 @@
         "twig/twig": "^2.1",
         "doctrine/annotations": "^1.3",
         "airbrake/phpbrake": "^0.2.2",
-        "psr/log": "^1.0"
+        "psr/log": "^1.0",
+        "monolog/monolog": "^1.22"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0"

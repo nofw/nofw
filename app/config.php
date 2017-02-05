@@ -60,7 +60,7 @@ return [
         $whoops
             ->pushHandler($container->get(\Whoops\Handler\PrettyPageHandler::class))
             ->pushHandler($container->get(\Nofw\Infrastructure\Whoops\ProductionHandler::class))
-            // TODO: add log handler
+            ->pushHandler($container->get(\Nofw\Infrastructure\Whoops\LogHandler::class))
         ;
 
         return $whoops;
@@ -68,4 +68,13 @@ return [
     \Nofw\Infrastructure\Whoops\ProductionHandler::class => \DI\object()
         ->constructorParameter('debug', \DI\get('debug'))
     ,
+    \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
+        $monolog = new \Monolog\Logger('nofw');
+
+        $handler = new \Monolog\Handler\StreamHandler('php://stdout');
+
+        $monolog->pushHandler($handler);
+
+        return $monolog;
+    },
 ];
