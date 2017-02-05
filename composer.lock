@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a4c3860a9852bd62d549b7f6c48d5c7",
+    "content-hash": "a50c9521e6be1fd59bd299bd588b56d3",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -443,29 +443,33 @@
         },
         {
             "name": "middlewares/fast-route",
-            "version": "v0.3.0",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/middlewares/fast-route.git",
-                "reference": "4b08d79aef825292774eddd9b58b4d1d23a7fcfe"
+                "reference": "ed3d1313db6e9d0cc7668a6fa655d9f7b6a60e2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/middlewares/fast-route/zipball/4b08d79aef825292774eddd9b58b4d1d23a7fcfe",
-                "reference": "4b08d79aef825292774eddd9b58b4d1d23a7fcfe",
+                "url": "https://api.github.com/repos/middlewares/fast-route/zipball/ed3d1313db6e9d0cc7668a6fa655d9f7b6a60e2d",
+                "reference": "ed3d1313db6e9d0cc7668a6fa655d9f7b6a60e2d",
                 "shasum": ""
             },
             "require": {
                 "http-interop/http-middleware": "^0.4",
-                "middlewares/utils": "~0.8",
+                "middlewares/utils": "~0.9",
                 "nikic/fast-route": "^1.0",
                 "php": "^5.6 || ^7.0"
             },
             "require-dev": {
+                "container-interop/container-interop": "^1.1",
                 "friendsofphp/php-cs-fixer": "^2.0",
                 "phpunit/phpunit": "^5.5",
                 "squizlabs/php_codesniffer": "^2.7",
                 "zendframework/zend-diactoros": "^1.3"
+            },
+            "suggest": {
+                "container-interop/container-interop": "Can be used to automatically resolve route actions"
             },
             "type": "library",
             "autoload": {
@@ -489,20 +493,20 @@
                 "router",
                 "server"
             ],
-            "time": "2016-12-26T09:58:31+00:00"
+            "time": "2017-02-05T18:00:46+00:00"
         },
         {
             "name": "middlewares/utils",
-            "version": "v0.8.0",
+            "version": "v0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/middlewares/utils.git",
-                "reference": "eed3bf9d3eeb478d2fecba443bfcdb51eb0a5c67"
+                "reference": "eafb1fea07663e7c2fb844e393291cbc9cf14d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/middlewares/utils/zipball/eed3bf9d3eeb478d2fecba443bfcdb51eb0a5c67",
-                "reference": "eed3bf9d3eeb478d2fecba443bfcdb51eb0a5c67",
+                "url": "https://api.github.com/repos/middlewares/utils/zipball/eafb1fea07663e7c2fb844e393291cbc9cf14d8e",
+                "reference": "eafb1fea07663e7c2fb844e393291cbc9cf14d8e",
                 "shasum": ""
             },
             "require": {
@@ -512,12 +516,16 @@
                 "psr/http-message": "^1.0"
             },
             "require-dev": {
+                "container-interop/container-interop": "^1.1",
                 "friendsofphp/php-cs-fixer": "^2.0",
                 "guzzlehttp/psr7": "^1.3",
                 "phpunit/phpunit": "^5.5",
                 "slim/slim": "^3.5",
                 "squizlabs/php_codesniffer": "^2.7",
                 "zendframework/zend-diactoros": "^1.3"
+            },
+            "suggest": {
+                "container-interop/container-interop": "Can be used to automatically resolve callables"
             },
             "type": "library",
             "autoload": {
@@ -537,7 +545,7 @@
                 "psr-15",
                 "psr-7"
             ],
-            "time": "2016-12-22T19:25:17+00:00"
+            "time": "2017-02-05T17:31:13+00:00"
         },
         {
             "name": "middlewares/whoops",
@@ -1544,16 +1552,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.0.4",
+            "version": "6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9d46f378548de4bf2582de709e43ad71abcd57eb"
+                "reference": "1fb01cbd5aa7fa2457cc10170070676a9ad315d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9d46f378548de4bf2582de709e43ad71abcd57eb",
-                "reference": "9d46f378548de4bf2582de709e43ad71abcd57eb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1fb01cbd5aa7fa2457cc10170070676a9ad315d2",
+                "reference": "1fb01cbd5aa7fa2457cc10170070676a9ad315d2",
                 "shasum": ""
             },
             "require": {
@@ -1622,7 +1630,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-02-04T16:24:14+00:00"
+            "time": "2017-02-05T15:33:43+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

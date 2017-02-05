@@ -20,7 +20,7 @@ return [
         \DI\get(\Middlewares\FastRoute::class),
     ],
     \Middlewares\FastRoute::class => \DI\object()
-        ->methodParameter('resolver', 'resolver', \DI\get(\DI\Container::class))
+        ->methodParameter('resolver', 'container', \DI\get(\DI\Container::class))
     ,
     \Middlewares\Whoops::class => \DI\object()->constructor(\DI\get(\Whoops\Run::class)),
     'dispatcher' => \DI\object(\Middlewares\Utils\Dispatcher::class)->constructor(\DI\get('middlewares')),
