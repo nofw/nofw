@@ -2,6 +2,9 @@ version: "2.1"
 
 services:
     app:
+        environment:
+            AIRBRAKE_PROJECT_ID: 1234
+            AIRBRAKE_PROJECT_KEY: ABCD
         ports:
             - 8080:80
 
@@ -11,3 +14,7 @@ services:
             - $SSH_AUTH_SOCK:/tmp/ssh.sock
         environment:
             SSH_AUTH_SOCK: /tmp/ssh.sock
+
+    errbit:
+        ports:
+            - 8081:8080

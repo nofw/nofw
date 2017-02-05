@@ -8,8 +8,8 @@
 ``` bash
 $ cp docker-compose.override.yml.example docker-compose.override.yml
 $ make setup
-$ make start
 $ make install
+$ make start
 ```
 
 You should have the app running on localhost, port 8080.
@@ -42,6 +42,8 @@ No framework uses the following components:
 Worth mentioning that 100% of any building, caching happens only at container build time, no issues like [this](http://stackoverflow.com/questions/38777550/recompile-symfony-container-manually).
 
 [Bootstrap 4](https://v4-alpha.getbootstrap.com/) is used as the frontend framework.
+
+PHP 7.1, because it's 2017 (and not 2007).
 
 
 ## Credits

@@ -1,4 +1,5 @@
 /app/config.local.php
+/app/env/local.php
 /docker-compose.override.yml
 /var/*
 !/var/cache

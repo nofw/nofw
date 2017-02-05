@@ -22,19 +22,7 @@ return [
     \Middlewares\FastRoute::class => \DI\object()
         ->methodParameter('resolver', 'resolver', \DI\get(\DI\Container::class))
     ,
-    \Whoops\Run::class => function(\Interop\Container\ContainerInterface $container) {
-        $whoops = new \Whoops\Run();
-
-        $whoops
-            ->pushHandler($container->get(\Whoops\Handler\PrettyPageHandler::class))
-            ->pushHandler($container->get(\Nofw\Infrastructure\Whoops\ProductionHandler::class))
-            // TODO: add error/log handler
-        ;
-
-        return $whoops;
-    },
     \Middlewares\Whoops::class => \DI\object()->constructor(\DI\get(\Whoops\Run::class)),
-    \Nofw\Infrastructure\Whoops\ProductionHandler::class => \DI\object()->constructorParameter('debug', \DI\get('debug')),
     'dispatcher' => \DI\object(\Middlewares\Utils\Dispatcher::class)->constructor(\DI\get('middlewares')),
     \FastRoute\Dispatcher::class => \DI\factory('FastRoute\\cachedDispatcher')
         ->parameter(
@@ -66,4 +54,18 @@ return [
            ];
        })->parameter('debug', \DI\get('debug'))
    ),
+    \Whoops\Run::class => function(\Interop\Container\ContainerInterface $container) {
+        $whoops = new \Whoops\Run();
+
+        $whoops
+            ->pushHandler($container->get(\Whoops\Handler\PrettyPageHandler::class))
+            ->pushHandler($container->get(\Nofw\Infrastructure\Whoops\ProductionHandler::class))
+            // TODO: add log handler
+        ;
+
+        return $whoops;
+    },
+    \Nofw\Infrastructure\Whoops\ProductionHandler::class => \DI\object()
+        ->constructorParameter('debug', \DI\get('debug'))
+    ,
 ];
