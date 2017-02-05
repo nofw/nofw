@@ -36,6 +36,6 @@ test:
 
 # Install dependencies
 install:
-	@docker-compose run --rm composer install
+	@docker-compose run --rm composer install --ignore-platform-reqs
 
 .PHONY: setup build start stop clean test install

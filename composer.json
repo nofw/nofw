@@ -14,6 +14,7 @@
     },
     "require": {
         "php-di/php-di": "^5.4",
+        "ext-apcu": "*",
         "nikic/fast-route": "^1.1",
         "doctrine/cache": "^1.6",
         "zendframework/zend-diactoros": "^1.3",
