@@ -32,7 +32,7 @@ clean: stop
 
 # Run test suite
 test:
-	@composer test
+	@docker-compose run --rm test
 
 # Install dependencies
 install:

@@ -1,6 +1,7 @@
 /app/config.local.php
 /app/env/local.php
 /docker-compose.override.yml
+/phpunit.xml
 /var/*
 !/var/cache
 /var/cache/*

@@ -11,10 +11,14 @@ use Zend\Diactoros\Stream;
 final class ErrorPageContent implements MiddlewareInterface
 {
     /**
-     * @Inject
      * @var \Twig_Environment
      */
     private $twig;
+
+    public function __construct(\Twig_Environment $twig)
+    {
+        $this->twig = $twig;
+    }
 
     public function process(ServerRequestInterface $request, DelegateInterface $delegate): ResponseInterface
     {

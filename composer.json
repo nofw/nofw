@@ -9,9 +9,6 @@
             "email": "mark.sagikazar@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": { "Nofw\\": "src/" }
-    },
     "require": {
         "php-di/php-di": "^5.4",
         "ext-apcu": "*",
@@ -28,5 +25,11 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": { "Nofw\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\Nofw\\": "tests/" }
     }
 }

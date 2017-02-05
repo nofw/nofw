@@ -1,5 +1,7 @@
 # No framework
 
+[![Build Status](https://img.shields.io/travis/webplates/nofw.svg?style=flat-square)](https://travis-ci.org/webplates/nofw)
+
 **No framework at all!**
 
 
