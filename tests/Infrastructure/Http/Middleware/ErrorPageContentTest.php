@@ -63,7 +63,7 @@ final class ErrorPageContentTest extends TestCase
             $twig->render($template)->willReturn($body);
         }
 
-        $response = $middleware->process(new ServerRequest(), $delegate);
+        $response = $middleware->process((new ServerRequest())->withHeader('Accept', 'text/html'), $delegate);
 
         $this->assertEquals($statusCode, $response->getStatusCode());
         $this->assertEquals($body, (string) $response->getBody());

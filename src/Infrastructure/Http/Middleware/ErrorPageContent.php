@@ -25,28 +25,34 @@ final class ErrorPageContent implements MiddlewareInterface
         $response = $delegate->process($request);
 
         // If there is an error, but there is no body
-        if ($response->getStatusCode() >= 400 && $response->getBody()->getSize() < 1) {
-            // TODO: negotiate content-type
-            switch ($response->getStatusCode()) {
-                case 404:
-                    $html = $this->twig->render('error/error404.html.twig');
-                    break;
+        if ($this->isError($response) && $response->getBody()->getSize() < 1) {
+            if (stripos($request->getHeaderLine('Accept'), 'text/html') !== false) {
+                switch ($response->getStatusCode()) {
+                    case 404:
+                        $html = $this->twig->render('error/error404.html.twig');
+                        break;
 
-                default:
-                    $html = $this->twig->render('error/error.html.twig', [
-                        'status_code' => $response->getStatusCode(),
-                        'reason_phrase' => $response->getReasonPhrase(),
-                    ]);
-                    break;
+                    default:
+                        $html = $this->twig->render('error/error.html.twig', [
+                            'status_code' => $response->getStatusCode(),
+                            'reason_phrase' => $response->getReasonPhrase(),
+                        ]);
+                        break;
+                }
+
+                $body = new Stream('php://temp', 'wb+');
+                $body->write($html);
+                $body->rewind();
+
+                return $response->withBody($body);
             }
-
-            $body = new Stream('php://temp', 'wb+');
-            $body->write($html);
-            $body->rewind();
-
-            return $response->withBody($body);
         }
 
         return $response;
+    }
+
+    private function isError(ResponseInterface $response): bool
+    {
+        return $response->getStatusCode() >= 400 && $response->getStatusCode() < 600;
     }
 }
