@@ -3,7 +3,6 @@ BUILD_IMAGES=app
 # Setup environment
 setup: build
 	mkdir -p var/docker
-	RAILS_ENV=production docker-compose run --rm errbit bundle exec rake db:seed
 
 # Build images
 build:
