@@ -26,7 +26,7 @@ final class ErrorPageContent implements MiddlewareInterface
 
         // If there is an error, but there is no body
         if ($this->isError($response) && $response->getBody()->getSize() < 1) {
-            if (stripos($request->getHeaderLine('Accept'), 'text/html') !== false) {
+            if ($this->isHtml($request, $response)) {
                 switch ($response->getStatusCode()) {
                     case 404:
                         $html = $this->twig->render('error/error404.html.twig');
@@ -54,5 +54,18 @@ final class ErrorPageContent implements MiddlewareInterface
     private function isError(ResponseInterface $response): bool
     {
         return $response->getStatusCode() >= 400 && $response->getStatusCode() < 600;
+    }
+
+    private function isHtml(ServerRequestInterface $request, ResponseInterface $response): bool
+    {
+        $accept = $request->getHeaderLine('Accept');
+        $contentType = $response->getHeaderLine('Content-Type');
+
+        // TODO: improve negotiation
+        return empty($accept) ||
+            stripos($accept, '*') !== false ||
+            stripos($accept, 'text/html') !== false ||
+            stripos($contentType, 'text/html') !== false
+        ;
     }
 }
