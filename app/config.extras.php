@@ -2,7 +2,7 @@
 
 return [
     \Whoops\Run::class => \DI\decorate(function ($whoops, \Interop\Container\ContainerInterface $container) {
-        $whoops->pushHandler($container->get(\Nofw\Infrastructure\Whoops\AirbrakeHandler::class));
+        $whoops->pushHandler($container->get(\SKM\Whoops\Handler\AirbrakeHandler::class));
 
         return $whoops;
     }),

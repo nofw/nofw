@@ -59,13 +59,13 @@ return [
 
         $whoops
             ->pushHandler($container->get(\Whoops\Handler\PrettyPageHandler::class))
-            ->pushHandler($container->get(\Nofw\Infrastructure\Whoops\ProductionHandler::class))
-            ->pushHandler($container->get(\Nofw\Infrastructure\Whoops\LogHandler::class))
+            ->pushHandler($container->get(\SKM\Whoops\Handler\ProductionHandler::class))
+            ->pushHandler($container->get(\SKM\Whoops\Handler\LogHandler::class))
         ;
 
         return $whoops;
     },
-    \Nofw\Infrastructure\Whoops\ProductionHandler::class => \DI\object()
+    \SKM\Whoops\Handler\ProductionHandler::class => \DI\object()
         ->constructorParameter('debug', \DI\get('debug'))
     ,
     \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
