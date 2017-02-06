@@ -9,18 +9,12 @@ use Whoops\Handler\Handler;
 class ProductionHandler extends Handler
 {
     /**
-     * @var \Twig_Environment
-     */
-    private $twig;
-
-    /**
      * @var bool
      */
     private $debug = false;
 
-    public function __construct(\Twig_Environment $twig, bool $debug)
+    public function __construct(bool $debug)
     {
-        $this->twig = $twig;
         $this->debug = $debug;
     }
 
@@ -29,8 +23,6 @@ class ProductionHandler extends Handler
         if ($this->debug) {
             return Handler::DONE;
         }
-
-        echo $this->twig->render('error/error500.html.twig');
 
         return Handler::QUIT;
     }

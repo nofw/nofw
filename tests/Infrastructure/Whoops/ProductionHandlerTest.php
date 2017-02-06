@@ -15,9 +15,7 @@ final class ProductionHandlerTest extends TestCase
      */
     public function it_is_a_handler()
     {
-        /** @var \Twig_Environment|ObjectProphecy $twig */
-        $twig = $this->prophesize(\Twig_Environment::class);
-        $handler  = new ProductionHandler($twig->reveal(), true);
+        $handler  = new ProductionHandler(true);
 
         $this->assertInstanceOf(HandlerInterface::class, $handler);
     }
@@ -27,9 +25,7 @@ final class ProductionHandlerTest extends TestCase
      */
     public function it_is_skipped_when_debug_is_enabled()
     {
-        /** @var \Twig_Environment|ObjectProphecy $twig */
-        $twig = $this->prophesize(\Twig_Environment::class);
-        $handler  = new ProductionHandler($twig->reveal(), true);
+        $handler  = new ProductionHandler(true);
 
         $result = $handler->handle();
 
@@ -41,22 +37,10 @@ final class ProductionHandlerTest extends TestCase
      */
     public function it_renders_a_generic_error_page_and_quits()
     {
-        /** @var \Twig_Environment|ObjectProphecy $twig */
-        $twig = $this->prophesize(\Twig_Environment::class);
-        $handler  = new ProductionHandler($twig->reveal(), false);
-
-        $twig->render('error/error500.html.twig')->willReturn('error');
-
-        ob_start();
-        $level = ob_get_level();
+        $handler  = new ProductionHandler(false);
 
         $result = $handler->handle();
 
-        $this->assertEquals('error', ob_get_contents());
         $this->assertEquals(Handler::QUIT, $result);
-
-        while (ob_get_level() >= $level) {
-            ob_end_clean();
-        }
     }
 }

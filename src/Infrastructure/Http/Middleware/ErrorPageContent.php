@@ -32,12 +32,11 @@ final class ErrorPageContent implements MiddlewareInterface
                     $html = $this->twig->render('error/error404.html.twig');
                     break;
 
-                case 500:
-                    $html = $this->twig->render('error/error500.html.twig');
-                    break;
-
                 default:
-                    $html = $this->twig->render('error/error.html.twig');
+                    $html = $this->twig->render('error/error.html.twig', [
+                        'status_code' => $response->getStatusCode(),
+                        'reason_phrase' => $response->getReasonPhrase(),
+                    ]);
                     break;
             }
 

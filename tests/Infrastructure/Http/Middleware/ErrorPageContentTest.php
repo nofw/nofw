@@ -47,7 +47,7 @@ final class ErrorPageContentTest extends TestCase
      * @dataProvider errorProvider
      * @test
      */
-    public function it_creates_a_body_for_empty_error_responses($statusCode, $template, $body)
+    public function it_creates_a_body_for_empty_error_responses($statusCode, $template, $context, $body)
     {
         /** @var \Twig_Environment|ObjectProphecy $twig */
         $twig = $this->prophesize(\Twig_Environment::class);
@@ -57,7 +57,11 @@ final class ErrorPageContentTest extends TestCase
             return new Response('php://memory', $statusCode);
         });
 
-        $twig->render($template)->willReturn($body);
+        if (is_array($context)) {
+            $twig->render($template, $context)->willReturn($body);
+        } else {
+            $twig->render($template)->willReturn($body);
+        }
 
         $response = $middleware->process(new ServerRequest(), $delegate);
 
@@ -68,9 +72,16 @@ final class ErrorPageContentTest extends TestCase
     public function errorProvider(): array
     {
         return [
-            [404, 'error/error404.html.twig', '404'],
-            [500, 'error/error500.html.twig', '500'],
-            [409, 'error/error.html.twig', 'error'],
+            [404, 'error/error404.html.twig', null, '404'],
+            [
+                500,
+                'error/error.html.twig',
+                [
+                    'status_code' => 500,
+                    'reason_phrase' => 'Internal Server Error',
+                ],
+                'error',
+            ],
         ];
     }
 }
