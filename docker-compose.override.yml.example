@@ -2,14 +2,8 @@ version: "2.1"
 
 services:
     app:
-        external_links:
-            - errbit
         ports:
             - 8080:80
-        environment:
-            AIRBRAKE_HOST: http://errbit:8080
-            AIRBRAKE_PROJECT_ID: 1234
-            AIRBRAKE_PROJECT_KEY: ABCD
 
     composer:
         volumes:
