@@ -2,7 +2,7 @@ version: "2.1"
 
 services:
     app:
-        build: .
+        image: nofw/base
         environment:
             APPLICATION_ENV: dev
         volumes:
