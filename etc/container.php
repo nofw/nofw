@@ -18,7 +18,8 @@ return [
         \DI\get(\Nofw\Foundation\Http\Middleware\ErrorPageContent::class),
         \DI\get(\Middlewares\Whoops::class),
         \DI\get(\Nofw\Foundation\Http\Middleware\HttpException::class),
-        \DI\get(\Middlewares\FastRoute::class),
+        \DI\get(\Middlewares\PhpSession::class),
+        \DI\get(\Middlewares\FastRoute::class), // Last middleware in the chain
     ],
     \Interop\Http\Factory\StreamFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\StreamFactory::class),
     \Interop\Http\Factory\ResponseFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\ResponseFactory::class),
@@ -74,12 +75,15 @@ return [
 
         return $whoops;
     },
-    \SKM\Whoops\Handler\ProductionHandler::class => \DI\object()->constructorParameter('debug', \DI\get('debug')),
+    \SKM\Whoops\Handler\ProductionHandler::class => \DI\object()->constructor(\DI\get('debug')),
     \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $monolog = new \Monolog\Logger('nofw');
 
         $monolog->pushHandler(new \Monolog\Handler\StreamHandler('php://stdout'));
-        $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());
+
+        if ($container->get('debug')) {
+            $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());
+        }
 
         return $monolog;
     },

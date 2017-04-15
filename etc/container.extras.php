@@ -15,9 +15,23 @@ return [
                 'environment' => $env,
             ];
         })
-            ->parameter('host', \DI\env('AIRBRAKE_HOST'))
-            ->parameter('projectId', \DI\env('AIRBRAKE_PROJECT_ID'))
-            ->parameter('projectKey', \DI\env('AIRBRAKE_PROJECT_KEY'))
-            ->parameter('env', \DI\get('env'))
+        ->parameter('host', \DI\env('AIRBRAKE_HOST'))
+        ->parameter('projectId', \DI\env('AIRBRAKE_PROJECT_ID'))
+        ->parameter('projectKey', \DI\env('AIRBRAKE_PROJECT_KEY'))
+        ->parameter('env', \DI\get('env'))
+    ),
+    \SessionHandlerInterface::class => \DI\object(\Nofw\Session\DoctrineCacheSessionHandler::class)->constructor(
+        \DI\object(\Doctrine\Common\Cache\MemcachedCache::class)->method(
+            'setMemcached',
+            \DI\factory(function($host, $port) {
+                $memcached = new \Memcached();
+
+                $memcached->addServer($host, $port);
+
+                return $memcached;
+            })
+            ->parameter('host', \DI\env('MEMCACHED_HOST'))
+            ->parameter('port', \DI\env('MEMCACHED_PORT'))
+        )
     ),
 ];

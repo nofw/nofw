@@ -1,5 +1,5 @@
 /etc/container.local.php
-/etc/container/local.php
+/etc/env/local.php
 /docker-compose.override.yml
 /locale/**/*.mo
 /phpunit.xml

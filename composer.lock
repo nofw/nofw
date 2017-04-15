@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "935fb9697fe6ff2ea2da9ccf089b311d",
+    "content-hash": "e001d1497a32840cda052f0f1d89873d",
     "packages": [
         {
             "name": "airbrake/phpbrake",
@@ -550,6 +550,53 @@
             "time": "2017-04-13T19:30:17+00:00"
         },
         {
+            "name": "middlewares/php-session",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/middlewares/php-session.git",
+                "reference": "3341e93490b2f29ccb9f6e765289129f373e4581"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/middlewares/php-session/zipball/3341e93490b2f29ccb9f6e765289129f373e4581",
+                "reference": "3341e93490b2f29ccb9f6e765289129f373e4581",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-middleware": "^0.4",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "middlewares/utils": "~0.8",
+                "phpunit/phpunit": "^5.5",
+                "squizlabs/php_codesniffer": "^2.7",
+                "zendframework/zend-diactoros": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Middlewares\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Middleware to start php sessions using the request data",
+            "homepage": "https://github.com/middlewares/php-session",
+            "keywords": [
+                "http",
+                "middleware",
+                "psr-15",
+                "psr-7",
+                "server",
+                "session"
+            ],
+            "time": "2016-12-26T09:59:27+00:00"
+        },
+        {
             "name": "middlewares/utils",
             "version": "v0.11.0",
             "source": {
@@ -824,6 +871,59 @@
                 "nofw"
             ],
             "time": "2017-04-15 00:00:09"
+        },
+        {
+            "name": "nofw/session-handlers",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nofw/session-handlers.git",
+                "reference": "3a4e35758492012baa9c5486d7ccc616b2051032"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nofw/session-handlers/zipball/3a4e35758492012baa9c5486d7ccc616b2051032",
+                "reference": "3a4e35758492012baa9c5486d7ccc616b2051032",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "doctrine/cache": "^1.5",
+                "henrikbjorn/phpspec-code-coverage": "^3.0",
+                "phpspec/phpspec": "^3.0",
+                "psr/cache": "^1.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nofw\\Session\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Package providing various SessionHandlerInterface implementations",
+            "homepage": "https://github.com/nofw",
+            "keywords": [
+                "handler",
+                "session"
+            ],
+            "time": "2017-04-15T09:23:42+00:00"
         },
         {
             "name": "php-di/invoker",
