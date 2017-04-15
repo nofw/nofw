@@ -13,6 +13,7 @@ return [
     'view_paths' => [
         APP_ROOT.'/templates/',
     ],
+    'locale' => \DI\env('APP_LOCALE', 'en_US.UTF-8'),
     'middlewares' => [
         \DI\get(\Nofw\Foundation\Http\Middleware\ErrorPageContent::class),
         \DI\get(\Middlewares\Whoops::class),
@@ -47,15 +48,21 @@ return [
             })->parameter('debug', \DI\get('debug'))
         )
     ,
-   \Twig_Environment::class => \DI\object()->constructor(
-       \DI\object(\Twig_Loader_Filesystem::class)->constructor(\DI\get('view_paths')),
-       \DI\factory(function($debug) {
-           return [
-               'debug' => $debug,
-               'cache' => $debug ? false : APP_ROOT.'/var/cache/twig/',
-           ];
-       })->parameter('debug', \DI\get('debug'))
-   ),
+    \Twig_LoaderInterface::class => \DI\object(\Twig_Loader_Filesystem::class)->constructor(\DI\get('view_paths')),
+    \Twig_Environment::class => function(\Interop\Container\ContainerInterface $container) {
+        $debug = $container->get('debug');
+        $twig = new \Twig_Environment(
+            $container->get(\Twig_LoaderInterface::class),
+            [
+                'debug' => $debug,
+                'cache' => $debug ? false : APP_ROOT.'/var/cache/twig/',
+            ]
+        );
+
+        $twig->addExtension($container->get(\Twig_Extensions_Extension_I18n::class));
+
+        return $twig;
+    },
     \Whoops\Run::class => function(\Interop\Container\ContainerInterface $container) {
         $whoops = new \Whoops\Run();
 

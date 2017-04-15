@@ -19,3 +19,13 @@ if (file_exists(__DIR__.'/env/local.php')) {
 }
 
 $container = $containerBuilder->build();
+
+$locale = $container->get('locale');
+$domain = 'messages';
+
+putenv("LANGUAGE=" . $locale);
+setlocale(LC_ALL, $locale);
+
+bindtextdomain($domain, APP_ROOT.'/locale/');
+bind_textdomain_codeset($domain, 'UTF-8');
+textdomain($domain);
