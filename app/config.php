@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'env' => \DI\env('APPLICATION_ENV', 'prod'),
+    'env' => \DI\env('APP_ENV', 'prod'),
     'debug' => \DI\env(
-        'APPLICATION_DEBUG',
+        'APP_DEBUG',
         \DI\factory(
             function(string $env) {
                 return 'dev' === $env;
@@ -19,8 +19,10 @@ return [
         \DI\get(\Nofw\Foundation\Http\Middleware\HttpException::class),
         \DI\get(\Middlewares\FastRoute::class),
     ],
+    \Interop\Http\Factory\StreamFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\StreamFactory::class),
+    \Interop\Http\Factory\ResponseFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\ResponseFactory::class),
     \Middlewares\FastRoute::class => \DI\object()
-        ->methodParameter('resolver', 'container', \DI\get(\DI\Container::class))
+        ->methodParameter('container', 'container', \DI\get(\DI\Container::class))
     ,
     \Middlewares\Whoops::class => \DI\object()->constructor(\DI\get(\Whoops\Run::class)),
     'dispatcher' => \DI\object(\Middlewares\Utils\Dispatcher::class)->constructor(\DI\get('middlewares')),

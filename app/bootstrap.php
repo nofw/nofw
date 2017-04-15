@@ -2,7 +2,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-$env = getenv('APPLICATION_ENV') ?: 'prod';
+$env = getenv('APP_ENV') ?: 'prod';
 define('APP_ROOT', __DIR__);
 
 $containerBuilder = (new \DI\ContainerBuilder())

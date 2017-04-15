@@ -5,6 +5,6 @@ $cache->setNamespace('container');
 
 /** @var \DI\ContainerBuilder $containerBuilder */
 $containerBuilder
-    ->writeProxiesToFile(true, __DIR__.'/../../var/cache/proxies/')
+    ->writeProxiesToFile(true, __DIR__.'/../../var/cache/container/proxies/')
     ->setDefinitionCache($cache)
 ;

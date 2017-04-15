@@ -6,5 +6,5 @@ RUN composer install --prefer-dist --no-dev --no-interaction
 
 COPY . /var/www
 
-ENV APPLICATION_ENV prod
+ENV APP_ENV prod
 RUN mkdir -p var/cache && bin/cache

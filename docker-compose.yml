@@ -4,6 +4,6 @@ services:
     app:
         image: nofw/base
         environment:
-            APPLICATION_ENV: dev
+            APP_ENV: dev
         volumes:
             - ./:/var/www
