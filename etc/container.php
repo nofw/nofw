@@ -11,7 +11,7 @@ return [
         )->parameter('env', \DI\get('env'))
     ),
     'view_paths' => [
-        APP_ROOT.'/../templates/',
+        APP_ROOT.'/templates/',
     ],
     'middlewares' => [
         \DI\get(\Nofw\Foundation\Http\Middleware\ErrorPageContent::class),
@@ -30,7 +30,7 @@ return [
         ->parameter(
             'routeDefinitionCallback',
             function(\FastRoute\RouteCollector $r) {
-                $routeList = require APP_ROOT.'/routes.php';
+                $routeList = require APP_ROOT.'/etc/routes.php';
 
                 foreach ($routeList as $routeDef) {
                     $r->addRoute($routeDef[0], $routeDef[1], $routeDef[2]);
@@ -42,7 +42,7 @@ return [
             \DI\factory(function(bool $debug) {
                 return [
                     'cacheDisabled' => $debug,
-                    'cacheFile' => APP_ROOT.'/../var/cache/router.php',
+                    'cacheFile' => APP_ROOT.'/var/cache/router.php',
                 ];
             })->parameter('debug', \DI\get('debug'))
         )
@@ -52,7 +52,7 @@ return [
        \DI\factory(function($debug) {
            return [
                'debug' => $debug,
-               'cache' => $debug ? false : APP_ROOT.'/../var/cache/twig/',
+               'cache' => $debug ? false : APP_ROOT.'/var/cache/twig/',
            ];
        })->parameter('debug', \DI\get('debug'))
    ),

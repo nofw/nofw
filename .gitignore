@@ -1,5 +1,5 @@
-/app/config.local.php
-/app/env/local.php
+/etc/container.local.php
+/etc/container/local.php
 /docker-compose.override.yml
 /phpunit.xml
 /var/*

@@ -1,0 +1,4 @@
+<?php
+
+/** @var \DI\ContainerBuilder $containerBuilder */
+$containerBuilder->addDefinitions(__DIR__.'/../container.extras.php');
