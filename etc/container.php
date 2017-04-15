@@ -74,15 +74,12 @@ return [
 
         return $whoops;
     },
-    \SKM\Whoops\Handler\ProductionHandler::class => \DI\object()
-        ->constructorParameter('debug', \DI\get('debug'))
-    ,
+    \SKM\Whoops\Handler\ProductionHandler::class => \DI\object()->constructorParameter('debug', \DI\get('debug')),
     \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $monolog = new \Monolog\Logger('nofw');
 
-        $handler = new \Monolog\Handler\StreamHandler('php://stdout');
-
-        $monolog->pushHandler($handler);
+        $monolog->pushHandler(new \Monolog\Handler\StreamHandler('php://stdout'));
+        $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());
 
         return $monolog;
     },
