@@ -1,6 +1,7 @@
 # No framework
 
-[![Build Status](https://img.shields.io/travis/webplates/nofw.svg?style=flat-square)](https://travis-ci.org/webplates/nofw)
+[![Build Status](https://img.shields.io/travis/nofw/nofw.svg?style=flat-square)](https://travis-ci.org/nofw/nofw)
+[![Total Downloads](https://img.shields.io/packagist/dt/nofw/nofw.svg?style=flat-square)](https://packagist.org/packages/nofw/nofw)
 
 **No framework at all!**
 
