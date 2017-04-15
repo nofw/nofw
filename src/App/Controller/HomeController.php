@@ -11,12 +11,14 @@ final class HomeController
 {
     /**
      * @Inject
+     *
      * @var \Twig_Environment
      */
     private $twig;
 
     /**
      * @Inject
+     *
      * @var LoggerInterface
      */
     private $logger;

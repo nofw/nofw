@@ -12,6 +12,7 @@ final class ErrorController
 {
     /**
      * @Inject
+     *
      * @var \Twig_Environment
      */
     private $twig;
