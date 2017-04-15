@@ -14,9 +14,9 @@ return [
         APP_ROOT.'/../src/App/View/',
     ],
     'middlewares' => [
-        \DI\get(\Nofw\Infrastructure\Http\Middleware\ErrorPageContent::class),
+        \DI\get(\Nofw\Foundation\Http\Middleware\ErrorPageContent::class),
         \DI\get(\Middlewares\Whoops::class),
-        \DI\get(\Nofw\Infrastructure\Http\Middleware\HttpException::class),
+        \DI\get(\Nofw\Foundation\Http\Middleware\HttpException::class),
         \DI\get(\Middlewares\FastRoute::class),
     ],
     \Middlewares\FastRoute::class => \DI\object()

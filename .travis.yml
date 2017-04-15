@@ -4,11 +4,15 @@ sudo: false
 
 cache:
     directories:
-        - $HOME/.composer/cache
+        - $HOME/.composer/cache/files
 
 php:
     - 7.1
 
+branches:
+    except:
+        - /^analysis-.*$/
+
 before_install: echo yes | pecl install apcu
 install: travis_retry composer install --prefer-dist --no-interaction
-script: vendor/bin/phpunit
+script: make test

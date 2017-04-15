@@ -1,40 +1,31 @@
-BUILD_IMAGES=app
+# A Self-Documenting Makefile: http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 
-# Setup environment
-setup: build
-	mkdir -p var/docker
+DOCKER_IMAGE = php:7.1
 
-# Build images
-build:
-ifeq ($(FORCE), true)
-	@docker-compose build --force-rm $(BUILD_IMAGES)
-else
-	@docker-compose build $(BUILD_IMAGES)
-endif
+.PHONY: setup install clean test help
+.DEFAULT_GOAL := help
 
-# Start the environment
-start:
-	@docker-compose up -d
+setup: install docker-compose.override.yml ## Setup the project for development
 
-# Stop the environment
-stop:
-ifeq ($(FORCE), true)
-	@docker-compose kill
-else
-	@docker-compose stop
-endif
+install: ## Install dependencies
+	@composer ${COMPOSER_FLAGS} install
 
-# Clean environment
-clean: stop
-	@rm -rf vendor/ var/cache/* var/docker
-	@docker-compose rm --force
+docker-compose.override.yml:
+	cp docker-compose.override.yml.example docker-compose.override.yml
 
-# Run test suite
-test:
-	@docker-compose run --rm test
+clean: ## Clean the working area
+	docker-compose down
+	rm -rf build/ vendor/ var/cache/* var/docker docker-compose.override.yml
 
-# Install dependencies
-install:
-	@docker-compose run --rm composer install --ignore-platform-reqs
+test: ## Run tests
+	@vendor/bin/phpunit
 
-.PHONY: setup build start stop clean test install
+docker: ## Execute commands inside a Docker container
+	docker run --rm -it -v $$PWD:/app -w /app $(DOCKER_IMAGE) make $(filter-out docker, $(MAKECMDGOALS))
+	@printf "\033[36mExiting with non-zero status code to abort make. If you see this message your command successfully ran.\033[0m\n"
+	exit 1
+
+help:
+	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+-include custom.mk
