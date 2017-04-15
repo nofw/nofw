@@ -11,7 +11,7 @@ return [
         )->parameter('env', \DI\get('env'))
     ),
     'view_paths' => [
-        APP_ROOT.'/../src/App/View/',
+        APP_ROOT.'/../templates/',
     ],
     'middlewares' => [
         \DI\get(\Nofw\Foundation\Http\Middleware\ErrorPageContent::class),
