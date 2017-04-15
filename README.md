@@ -49,7 +49,7 @@ No framework uses the following components:
 
 Worth mentioning that 100% of any building, caching happens only at container build time, no issues like [this](http://stackoverflow.com/questions/38777550/recompile-symfony-container-manually).
 
-[Bootstrap 4](https://v4-alpha.getbootstrap.com/) is used as the frontend framework.
+[Materialize CSS](http://materializecss.com) is used as the frontend framework.
 
 PHP 7.1, because it's 2017 (and not 2007).
 
