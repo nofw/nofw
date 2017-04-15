@@ -13,6 +13,5 @@ branches:
     except:
         - /^analysis-.*$/
 
-before_install: echo yes | pecl install apcu
 install: travis_retry composer install --prefer-dist --no-interaction
 script: make test
