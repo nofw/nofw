@@ -4,60 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e001d1497a32840cda052f0f1d89873d",
+    "content-hash": "a391d068cf5b618e8bd2491efb7e9a9f",
     "packages": [
-        {
-            "name": "airbrake/phpbrake",
-            "version": "v0.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/airbrake/phpbrake.git",
-                "reference": "a83ba7a9d370fef9af61df714478be741445c54a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/airbrake/phpbrake/zipball/a83ba7a9d370fef9af61df714478be741445c54a",
-                "reference": "a83ba7a9d370fef9af61df714478be741445c54a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "^6.2",
-                "monolog/monolog": "^1.16.0",
-                "phpunit/phpunit": "^4.8.0",
-                "squizlabs/php_codesniffer": "^2.5.1"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Airbrake\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Airbrake exception and error notifier for PHP",
-            "homepage": "https://airbrake.io",
-            "keywords": [
-                "airbrake",
-                "error",
-                "exception",
-                "logging",
-                "notifier"
-            ],
-            "time": "2017-03-14T14:42:30+00:00"
-        },
         {
             "name": "container-interop/container-interop",
             "version": "1.2.0",

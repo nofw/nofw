@@ -38,11 +38,6 @@ No framework uses the following components:
 - Template Engine: [Twig](http://twig.sensiolabs.org/)
 
 
-## Extras
-
-- Error handler: [Airbrake](https://airbrake.io/)/[Errbit](http://errbit.com/)
-
-
 ## What else?
 
 [Docker](https://www.docker.com/) for development and a production ready Docker image are included. For simplicity, they are both PHP+Apache based images, in production PHP-FPM and Nginx are recommended.
