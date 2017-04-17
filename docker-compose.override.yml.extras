@@ -4,13 +4,10 @@ services:
     app:
         links:
             - errbit
-            - memcached
         environment:
             AIRBRAKE_HOST: http://errbit:8080
             AIRBRAKE_PROJECT_ID: 1234
             AIRBRAKE_PROJECT_KEY: ABCD
-            MEMCACHED_HOST: memcached
-            MEMCACHED_PORT: 11211
 
     errbit:
         image: errbit/errbit
@@ -26,6 +23,3 @@ services:
         image: mongo:3.2
         volumes:
             - ./var/docker/mongo:/data/db
-
-    memcached:
-        image: memcached:alpine
