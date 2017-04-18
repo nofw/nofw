@@ -27,7 +27,7 @@ $domain = 'messages';
 putenv("LANGUAGE=" . $locale);
 setlocale(LC_ALL, $locale);
 
-bindtextdomain($domain, APP_ROOT.'/usr/locale/');
+bindtextdomain($domain, APP_ROOT.'/app/locale/');
 bind_textdomain_codeset($domain, 'UTF-8');
 textdomain($domain);
 

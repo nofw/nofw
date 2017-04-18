@@ -1,8 +1,8 @@
+/app/locale/**/*.mo
 /etc/container.local.php
 /etc/env/local.php
 /docker-compose.override.yml
 /phpunit.xml
-/usr/locale/**/*.mo
 /var/*
 !/var/cache
 /var/cache/*

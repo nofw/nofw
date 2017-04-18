@@ -13,7 +13,7 @@ return [
         ->parameter('debug', \DI\env('APP_DEBUG', null))
     ,
     'view_paths' => [
-        APP_ROOT.'/usr/templates/',
+        APP_ROOT.'/app/templates/',
     ],
     'locale' => \DI\env('APP_LOCALE', 'en_US.UTF-8'),
     'middlewares' => [

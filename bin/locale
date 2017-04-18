@@ -2,4 +2,4 @@
 
 # TODO: improve this script, make it dynamic, etc
 
-msgfmt -o usr/locale/en_US/LC_MESSAGES/messages.mo usr/locale/en_US/LC_MESSAGES/messages.po
+msgfmt -o app/locale/en_US/LC_MESSAGES/messages.mo app/locale/en_US/LC_MESSAGES/messages.po
