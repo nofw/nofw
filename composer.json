@@ -25,7 +25,7 @@
         "monolog/monolog": "^1.22",
         "twig/extensions": "^1.4",
         "middlewares/php-session": "^0.3.0",
-        "nofw/session-handlers": "^0.1.0"
+        "nofw/session-handlers": "^0.2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1",

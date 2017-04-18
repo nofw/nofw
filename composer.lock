@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a391d068cf5b618e8bd2491efb7e9a9f",
+    "content-hash": "df1d041f4aa3a0f063acfad444cd58d6",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -822,20 +822,21 @@
         },
         {
             "name": "nofw/session-handlers",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nofw/session-handlers.git",
-                "reference": "3a4e35758492012baa9c5486d7ccc616b2051032"
+                "reference": "37345eeb77abdbece1d3c9b7c6f75af19dcc24d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nofw/session-handlers/zipball/3a4e35758492012baa9c5486d7ccc616b2051032",
-                "reference": "3a4e35758492012baa9c5486d7ccc616b2051032",
+                "url": "https://api.github.com/repos/nofw/session-handlers/zipball/37345eeb77abdbece1d3c9b7c6f75af19dcc24d8",
+                "reference": "37345eeb77abdbece1d3c9b7c6f75af19dcc24d8",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0"
+                "php": "^7.0",
+                "psr/log": "^1.0"
             },
             "require-dev": {
                 "doctrine/cache": "^1.5",
@@ -843,6 +844,9 @@
                 "phpspec/phpspec": "^3.0",
                 "psr/cache": "^1.0",
                 "psr/simple-cache": "^1.0"
+            },
+            "suggest": {
+                "psr/log-implementation": "Log errors of the PSR-6 and PSR-16 implementations"
             },
             "type": "library",
             "extra": {
@@ -871,7 +875,7 @@
                 "handler",
                 "session"
             ],
-            "time": "2017-04-15T09:23:42+00:00"
+            "time": "2017-04-18T14:13:41+00:00"
         },
         {
             "name": "php-di/invoker",
