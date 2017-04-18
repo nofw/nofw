@@ -9,5 +9,7 @@ COPY . /var/www
 ENV APP_ENV prod
 
 # Build cache
-RUN mkdir -p var/cache && bin/cache
-RUN bin/locale
+RUN set -xe \
+    && mkdir -p var/cache var/log \
+    && bin/cache \
+    && bin/locale

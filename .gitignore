@@ -1,10 +1,13 @@
 /etc/container.local.php
 /etc/env/local.php
 /docker-compose.override.yml
-/locale/**/*.mo
 /phpunit.xml
+/usr/locale/**/*.mo
 /var/*
 !/var/cache
 /var/cache/*
 !var/cache/.gitkeep
+!/var/log
+/var/log/*
+!var/log/.gitkeep
 /vendor/

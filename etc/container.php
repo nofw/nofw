@@ -2,13 +2,18 @@
 
 return [
     'env' => \DI\env('APP_ENV', 'prod'),
-    'debug' => \DI\env(
-        'APP_DEBUG',
-        \DI\factory(function(string $env) { return 'dev' === $env; })
-            ->parameter('env', \DI\get('env'))
-    ),
+    'debug' => \DI\factory(function (string $env, ?string $debug): bool {
+        if (null !== $debug) {
+            return 'true' === $debug ? true : false;
+        }
+
+        return 'dev' === $env;
+    })
+        ->parameter('env', \DI\get('env'))
+        ->parameter('debug', \DI\env('APP_DEBUG', null))
+    ,
     'view_paths' => [
-        APP_ROOT.'/templates/',
+        APP_ROOT.'/usr/templates/',
     ],
     'locale' => \DI\env('APP_LOCALE', 'en_US.UTF-8'),
     'middlewares' => [
@@ -89,7 +94,7 @@ return [
     \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $monolog = new \Monolog\Logger('nofw');
 
-        $monolog->pushHandler(new \Monolog\Handler\StreamHandler('php://stdout'));
+        $monolog->pushHandler(new \Monolog\Handler\StreamHandler(APP_ROOT . '/var/log/' . $container->get('env') . '.log'));
 
         if ($container->get('debug')) {
             $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());

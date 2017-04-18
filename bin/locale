@@ -2,5 +2,4 @@
 
 # TODO: improve this script, make it dynamic, etc
 
-mkdir -p var/locale/en_US/LC_MESSAGES/
-msgfmt -o var/locale/en_US/LC_MESSAGES/messages.mo locale/en_US/messages.po
+msgfmt -o usr/locale/en_US/LC_MESSAGES/messages.mo usr/locale/en_US/LC_MESSAGES/messages.po

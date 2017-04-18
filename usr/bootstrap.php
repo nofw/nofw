@@ -1,21 +1,21 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $env = getenv('APP_ENV') ?: 'prod';
-define('APP_ROOT', realpath(__DIR__.'/../'));
+define('APP_ROOT', realpath(__DIR__ . '/../'));
 
 // Container setup
 $containerBuilder = (new \DI\ContainerBuilder())
     ->useAnnotations(true)
     ->useAutowiring(true)
-    ->addDefinitions(__DIR__.'/container.php')
+    ->addDefinitions(APP_ROOT . '/etc/container.php')
 ;
 
-require __DIR__.'/env/'.$env.'.php';
+require APP_ROOT . '/etc/env/' .$env.'.php';
 
-if (file_exists(__DIR__.'/env/local.php')) {
-    require __DIR__.'/env/local.php';
+if (file_exists(APP_ROOT . '/etc/env/local.php')) {
+    require APP_ROOT . '/etc/env/local.php';
 }
 
 $container = $containerBuilder->build();
@@ -27,7 +27,7 @@ $domain = 'messages';
 putenv("LANGUAGE=" . $locale);
 setlocale(LC_ALL, $locale);
 
-bindtextdomain($domain, APP_ROOT.'/var/locale/');
+bindtextdomain($domain, APP_ROOT.'/usr/locale/');
 bind_textdomain_codeset($domain, 'UTF-8');
 textdomain($domain);
 

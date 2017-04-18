@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../etc/bootstrap.php';
+require __DIR__ . '/../usr/bootstrap.php';
 
 $request = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
 

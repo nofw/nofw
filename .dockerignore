@@ -1,11 +1,9 @@
 *
 
 !bin/
-!bootstrap.php
 !composer.*
 !etc/
 !LICENSE
-!locale/
 !src/
-!templates/
+!usr/
 !web/

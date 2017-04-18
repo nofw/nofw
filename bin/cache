@@ -3,7 +3,7 @@
 
 putenv('APP_ENV=prod');
 
-require __DIR__.'/../etc/bootstrap.php';
+require __DIR__ . '/../usr/bootstrap.php';
 
 // Load router for the first time to initialize cache
 $router = $container->get(\FastRoute\Dispatcher::class);
