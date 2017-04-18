@@ -43,9 +43,10 @@ $ make clean
 
 Make sure the following are installed:
 
-- latest [Docker](https://www.docker.com/) (1.13.0 at the moment)
-- latest [Docker Compose](https://docs.docker.com/compose/) (1.10.0 at the moment)
+- latest [Docker](https://www.docker.com/)
+- latest [Docker Compose](https://docs.docker.com/compose/)
 - make
+- [composer](https://getcomposer.org/)
 
 
 ## Components
@@ -57,6 +58,7 @@ No framework uses the following components:
 - PSR-7: [zendframework/zend-diactoros](https://github.com/zendframework/zend-diactoros)
 - PSR-15: [middlewares/*](https://github.com/middlewares)
 - Template Engine: [Twig](http://twig.sensiolabs.org/)
+- Environment: [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv)
 
 
 ## What else?
