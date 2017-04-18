@@ -13,7 +13,7 @@
         "php-di/php-di": "^5.4",
         "doctrine/annotations": "^1.4",
         "nikic/fast-route": "^1.2",
-        "http-interop/http-factory-diactoros": "^0.3.0",
+        "zendframework/zend-diactoros": "^1.4",
         "nofw/foundation": "dev-master",
         "doctrine/cache": "^1.6",
         "filp/whoops": "^2.1",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a73df885630e342324607bc7ba40f105",
+    "content-hash": "151c32dfadcf2b0d392455eb665663fb",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -341,55 +341,6 @@
                 "response"
             ],
             "time": "2017-03-24T14:48:51+00:00"
-        },
-        {
-            "name": "http-interop/http-factory-diactoros",
-            "version": "0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/http-interop/http-factory-diactoros.git",
-                "reference": "60e10aa7d1788107d2b8d3080c70bb9debd9116f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/http-interop/http-factory-diactoros/zipball/60e10aa7d1788107d2b8d3080c70bb9debd9116f",
-                "reference": "60e10aa7d1788107d2b8d3080c70bb9debd9116f",
-                "shasum": ""
-            },
-            "require": {
-                "http-interop/http-factory": "^0.3",
-                "zendframework/zend-diactoros": "^1.3"
-            },
-            "provide": {
-                "psr/http-factory-implementation": "^1.0"
-            },
-            "require-dev": {
-                "http-interop/http-factory-tests": "^0.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Http\\Factory\\Diactoros\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "An HTTP Factory using Zend Diactoros",
-            "keywords": [
-                "factory",
-                "http",
-                "psr-17",
-                "psr-7"
-            ],
-            "time": "2017-03-29T10:51:41+00:00"
         },
         {
             "name": "http-interop/http-middleware",
