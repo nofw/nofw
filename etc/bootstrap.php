@@ -5,6 +5,7 @@ require __DIR__.'/../vendor/autoload.php';
 $env = getenv('APP_ENV') ?: 'prod';
 define('APP_ROOT', realpath(__DIR__.'/../'));
 
+// Container setup
 $containerBuilder = (new \DI\ContainerBuilder())
     ->useAnnotations(true)
     ->useAutowiring(true)
