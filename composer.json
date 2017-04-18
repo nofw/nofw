@@ -1,6 +1,8 @@
 {
     "name": "nofw/nofw",
     "description": "No framework at all!",
+    "keywords": ["nofw", "framework", "fw", "skeleton"],
+    "homepage": "https://nofw.io/",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -31,7 +33,8 @@
         "symfony/var-dumper": "^3.2"
     },
     "suggest": {
-        "ext-apcu": "Recommended for caching in production"
+        "ext-apcu": "Recommended for caching in production",
+        "nofw/session-handlers": "Advanced session handling, see https://nofw.io/docs/extras/advanced-session/"
     },
     "autoload": {
         "psr-4": {
