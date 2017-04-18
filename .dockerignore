@@ -5,6 +5,7 @@
 !composer.*
 !etc/
 !LICENSE
+!locale/
 !src/
 !templates/
 !web/
