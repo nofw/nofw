@@ -10,8 +10,7 @@ return [
         return 'dev' === $env;
     })
         ->parameter('env', \DI\get('env'))
-        ->parameter('debug', \DI\env('APP_DEBUG', null))
-    ,
+        ->parameter('debug', \DI\env('APP_DEBUG', null)),
     'view_paths' => [
         APP_ROOT.'/app/templates/',
     ],
@@ -35,7 +34,7 @@ return [
     \FastRoute\Dispatcher::class => \DI\factory('FastRoute\\cachedDispatcher')
         ->parameter(
             'routeDefinitionCallback',
-            function(\FastRoute\RouteCollector $r) {
+            function (\FastRoute\RouteCollector $r) {
                 $routeList = require APP_ROOT.'/etc/routes.php';
 
                 foreach ($routeList as $routeDef) {
@@ -45,15 +44,14 @@ return [
         )
         ->parameter(
             'options',
-            \DI\factory(function(bool $debug) {
+            \DI\factory(function (bool $debug) {
                 return [
                     'cacheDisabled' => $debug,
                     'cacheFile' => APP_ROOT.'/var/cache/router.php',
                 ];
             })->parameter('debug', \DI\get('debug'))
-        )
-    ,
-    \Twig_Environment::class => \DI\factory(function($debug, $viewPaths) {
+        ),
+    \Twig_Environment::class => \DI\factory(function ($debug, $viewPaths) {
         $twig = new \Twig_Environment(
             new \Twig_Loader_Filesystem($viewPaths, APP_ROOT),
             [
@@ -67,9 +65,8 @@ return [
         return $twig;
     })
         ->parameter('debug', \DI\get('debug'))
-        ->parameter('viewPaths', \DI\get('view_paths'))
-    ,
-    \Whoops\RunInterface::class => function(\Interop\Container\ContainerInterface $container) {
+        ->parameter('viewPaths', \DI\get('view_paths')),
+    \Whoops\RunInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $whoops = new \Whoops\Run();
 
         $prettyPage = new \Whoops\Handler\PrettyPageHandler();
@@ -94,7 +91,7 @@ return [
     \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $monolog = new \Monolog\Logger('nofw');
 
-        $monolog->pushHandler(new \Monolog\Handler\StreamHandler(APP_ROOT . '/var/log/' . $container->get('env') . '.log'));
+        $monolog->pushHandler(new \Monolog\Handler\StreamHandler(APP_ROOT.'/var/log/'.$container->get('env').'.log'));
 
         if ($container->get('debug')) {
             $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());
