@@ -10,7 +10,6 @@ $dotenv->load();
 
 $env = getenv('APP_ENV') ?: 'prod';
 
-
 // Container setup
 $containerBuilder = (new \DI\ContainerBuilder())
     ->useAnnotations(true)
@@ -26,7 +25,6 @@ if (file_exists(APP_ROOT.'/etc/env/local.php')) {
 
 $container = $containerBuilder->build();
 
-
 // Locale setup
 $locale = $container->get('locale');
 $domain = 'messages';
@@ -37,7 +35,6 @@ setlocale(LC_ALL, $locale);
 bindtextdomain($domain, APP_ROOT.'/app/locale/');
 bind_textdomain_codeset($domain, 'UTF-8');
 textdomain($domain);
-
 
 // Session setup
 if ($container->has(\SessionHandlerInterface::class)) {
