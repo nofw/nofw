@@ -5,7 +5,10 @@ finder:
         - "spec"
         - "tests"
     path:
+        - "app"
+        - "etc"
         - "src"
+        - "web"
 
 enabled:
     - short_array_syntax
