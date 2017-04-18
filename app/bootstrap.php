@@ -1,9 +1,15 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+define('APP_ROOT', realpath(__DIR__.'/../'));
+
+require APP_ROOT.'/vendor/autoload.php';
+
+// Load environment
+$dotenv = new Dotenv\Dotenv(APP_ROOT);
+$dotenv->load();
 
 $env = getenv('APP_ENV') ?: 'prod';
-define('APP_ROOT', realpath(__DIR__.'/../'));
+
 
 // Container setup
 $containerBuilder = (new \DI\ContainerBuilder())
@@ -20,6 +26,7 @@ if (file_exists(APP_ROOT.'/etc/env/local.php')) {
 
 $container = $containerBuilder->build();
 
+
 // Locale setup
 $locale = $container->get('locale');
 $domain = 'messages';
@@ -30,6 +37,7 @@ setlocale(LC_ALL, $locale);
 bindtextdomain($domain, APP_ROOT.'/app/locale/');
 bind_textdomain_codeset($domain, 'UTF-8');
 textdomain($domain);
+
 
 // Session setup
 if ($container->has(\SessionHandlerInterface::class)) {
