@@ -9,7 +9,6 @@ $containerBuilder = (new \DI\ContainerBuilder())
     ->useAnnotations(true)
     ->useAutowiring(true)
     ->addDefinitions(__DIR__.'/container.php')
-    //->addDefinitions(__DIR__.'/container.extras.php') // Uncomment to use advanced features
 ;
 
 require __DIR__.'/env/'.$env.'.php';
