@@ -9,13 +9,34 @@
 ## Quick start
 
 ``` bash
-$ cp docker-compose.override.yml.example docker-compose.override.yml
 $ make setup
-$ make install
-$ make start
+```
+
+To start Docker container:
+
+``` bash
+$ docker-compose up -d
+```
+
+To run the built-in PHP server:
+
+``` bash
+$ make serve
+```
+
+To run the built-in PHP server in a Docker container:
+
+``` bash
+$ make DOCKER_OPTS="-p 8080:8080" docker serve
 ```
 
 You should have the app running on localhost, port 8080.
+
+Clean up when you are done:
+
+``` bash
+$ make clean
+```
 
 
 ## Recommended development environment
