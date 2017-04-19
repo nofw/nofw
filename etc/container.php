@@ -82,8 +82,8 @@ return [
 
         $whoops
             ->pushHandler($prettyPage)
-            ->pushHandler(new \SKM\Whoops\Handler\ProductionHandler($container->get('debug')))
-            ->pushHandler($container->get(\SKM\Whoops\Handler\LogHandler::class))
+            ->pushHandler(new \Nofw\Foundation\Whoops\Handler\ProductionHandler($container->get('debug')))
+            ->pushHandler($container->get(\Nofw\Foundation\Whoops\Handler\LogHandler::class))
         ;
 
         return $whoops;

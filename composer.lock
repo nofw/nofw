@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "48230dd75ad7c568591d544ce80263c0",
+    "content-hash": "42a23befff68520f89407624cd27e1b3",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -720,28 +720,38 @@
         },
         {
             "name": "nofw/foundation",
-            "version": "dev-master",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nofw/foundation.git",
-                "reference": "83dee0285db421e01125c7bd0b0c2c98c9e2374d"
+                "reference": "9c206620a709a17273c417ba349854fc92c2e3ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nofw/foundation/zipball/83dee0285db421e01125c7bd0b0c2c98c9e2374d",
-                "reference": "83dee0285db421e01125c7bd0b0c2c98c9e2374d",
+                "url": "https://api.github.com/repos/nofw/foundation/zipball/9c206620a709a17273c417ba349854fc92c2e3ee",
+                "reference": "9c206620a709a17273c417ba349854fc92c2e3ee",
                 "shasum": ""
             },
             "require": {
-                "http-interop/http-factory": "^0.3.0",
-                "http-interop/http-middleware": "^0.4.1",
-                "php": "^7.1",
-                "twig/twig": "^2.0"
+                "php": "^7.1"
             },
             "require-dev": {
+                "filp/whoops": "^2.1",
+                "http-interop/http-factory": "^0.3.0",
+                "http-interop/http-middleware": "^0.4.1",
                 "middlewares/utils": "~0.9",
                 "phpunit/phpunit": "^6.1",
+                "psr/log": "^1.0",
+                "twig/twig": "^2.0",
                 "zendframework/zend-diactoros": "^1.0"
+            },
+            "suggest": {
+                "filp/whoops": "Error handler",
+                "http-interop/http-factory": "HTTP Factory abstraction",
+                "http-interop/http-middleware": "HTTP Middleware abstraction",
+                "psr/http-message-implementation": "PSR-7 HTTP Message abstraction used in HTTP middlewares",
+                "psr/log": "PSR-3 Log abstraction",
+                "twig/twig": "Template engine"
             },
             "type": "library",
             "extra": {
@@ -765,11 +775,11 @@
                 }
             ],
             "description": "Component integration tools for nowf applications",
-            "homepage": "https://sagikazarmark.hu",
+            "homepage": "https://nofw.io",
             "keywords": [
                 "nofw"
             ],
-            "time": "2017-04-15 00:00:09"
+            "time": "2017-04-19T01:34:47+00:00"
         },
         {
             "name": "php-di/invoker",
@@ -1060,63 +1070,6 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
-            "name": "skm/whoops-extra",
-            "version": "v0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sagikazarmark/whoops-extra.git",
-                "reference": "591003359ee4208befe64791c893676a4332958f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sagikazarmark/whoops-extra/zipball/591003359ee4208befe64791c893676a4332958f",
-                "reference": "591003359ee4208befe64791c893676a4332958f",
-                "shasum": ""
-            },
-            "require": {
-                "filp/whoops": "^2.0",
-                "php": "^7.0"
-            },
-            "require-dev": {
-                "airbrake/phpbrake": "^0.2.2",
-                "phpunit/phpunit": "^6.0",
-                "psr/log": "^1.0"
-            },
-            "suggest": {
-                "airbrake/phpbrake": "Allow sending errors to Airbrake",
-                "psr/log": "Allow logging errors"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "SKM\\Whoops\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Márk Sági-Kazár",
-                    "email": "mark.sagikazar@gmail.com"
-                }
-            ],
-            "description": "Useful handlers (Airbrake, PSR-3, etc) for the popular error handler filp/whoops",
-            "homepage": "http://github.com/sagikazarmark/whoops-extra",
-            "keywords": [
-                "PSR3",
-                "airbrake",
-                "whoops"
-            ],
-            "time": "2017-02-06T08:31:36+00:00"
-        },
-        {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.3.0",
             "source": {
@@ -1229,16 +1182,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "9718186a5df85a4f7917e78d3ffcabc204c75d25"
+                "reference": "437efc435619c8e67acacda37b3984344854142c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9718186a5df85a4f7917e78d3ffcabc204c75d25",
-                "reference": "9718186a5df85a4f7917e78d3ffcabc204c75d25",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/437efc435619c8e67acacda37b3984344854142c",
+                "reference": "437efc435619c8e67acacda37b3984344854142c",
                 "shasum": ""
             },
             "require": {
@@ -1288,7 +1241,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-03-22T15:41:51+00:00"
+            "time": "2017-04-18T21:50:11+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2871,9 +2824,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "nofw/foundation": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
