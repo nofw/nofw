@@ -16,17 +16,18 @@
         "doctrine/annotations": "^1.4",
         "nikic/fast-route": "^1.2",
         "zendframework/zend-diactoros": "^1.4",
-        "nofw/foundation": "^0.1",
+        "nofw/foundation": "^0.2",
         "doctrine/cache": "^1.6",
         "filp/whoops": "^2.1",
         "twig/twig": "^2.3",
         "twig/extensions": "^1.4",
         "monolog/monolog": "^1.22",
+        "vlucas/phpdotenv": "^2.4",
+        "nofw/emperror": "^0.1.0",
         "middlewares/fast-route": "^0.6.0",
         "middlewares/utils": "^0.11.0",
         "middlewares/whoops": "^0.4.0",
-        "middlewares/php-session": "^0.3.0",
-        "vlucas/phpdotenv": "^2.4"
+        "middlewares/php-session": "^0.3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1",

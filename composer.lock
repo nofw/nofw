@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "42a23befff68520f89407624cd27e1b3",
+    "content-hash": "6411538e48b5a1bc8eb9711a611f2617",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -719,17 +719,120 @@
             "time": "2017-01-19T11:35:12+00:00"
         },
         {
-            "name": "nofw/foundation",
+            "name": "nofw/emperror",
             "version": "v0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nofw/foundation.git",
-                "reference": "9c206620a709a17273c417ba349854fc92c2e3ee"
+                "url": "https://github.com/nofw/emperror.git",
+                "reference": "db6f887b0bb7ce1a6b51ca29b5c97c303cfa56bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nofw/foundation/zipball/9c206620a709a17273c417ba349854fc92c2e3ee",
-                "reference": "9c206620a709a17273c417ba349854fc92c2e3ee",
+                "url": "https://api.github.com/repos/nofw/emperror/zipball/db6f887b0bb7ce1a6b51ca29b5c97c303cfa56bf",
+                "reference": "db6f887b0bb7ce1a6b51ca29b5c97c303cfa56bf",
+                "shasum": ""
+            },
+            "require": {
+                "nofw/error": "^0.1",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "filp/whoops": "^2.1",
+                "nofw/error": "^0.1.1",
+                "php-mock/php-mock-phpunit": "^2.0",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nofw\\Emperror\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "The Emperor takes care of all errors personally",
+            "homepage": "https://nofw.io",
+            "keywords": [
+                "error",
+                "handler"
+            ],
+            "time": "2017-04-23T18:19:06+00:00"
+        },
+        {
+            "name": "nofw/error",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nofw/error.git",
+                "reference": "3b5b9374218238ebd31f477c531d3f186fad05bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nofw/error/zipball/3b5b9374218238ebd31f477c531d3f186fad05bc",
+                "reference": "3b5b9374218238ebd31f477c531d3f186fad05bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "gamez/psr-testlogger": "^1.0.3",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nofw\\Error\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Common interface for error handlers",
+            "homepage": "https://nofw.io",
+            "keywords": [
+                "error",
+                "handler"
+            ],
+            "time": "2017-04-23T17:40:11+00:00"
+        },
+        {
+            "name": "nofw/foundation",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nofw/foundation.git",
+                "reference": "53326bfb6befe582744bcd74a2db50b8b483d384"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nofw/foundation/zipball/53326bfb6befe582744bcd74a2db50b8b483d384",
+                "reference": "53326bfb6befe582744bcd74a2db50b8b483d384",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +859,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1-dev"
+                    "dev-master": "0.2-dev"
                 }
             },
             "autoload": {
@@ -779,7 +882,7 @@
             "keywords": [
                 "nofw"
             ],
-            "time": "2017-04-19T01:34:47+00:00"
+            "time": "2017-04-23T18:28:37+00:00"
         },
         {
             "name": "php-di/invoker",

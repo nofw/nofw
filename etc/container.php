@@ -90,11 +90,18 @@ return [
                 // Quit here in production
                 return \Whoops\Handler\Handler::QUIT;
             })
-            ->pushHandler($container->get(\Nofw\Foundation\Whoops\Handler\LogHandler::class))
+            ->pushHandler(new \Nofw\Emperror\Integration\Whoops\Handler($container->get(\Nofw\Error\ErrorHandler::class)))
         ;
 
         return $whoops;
     },
+    \Nofw\Error\ErrorHandler::class => \DI\object(\Nofw\Emperror\ErrorHandler::class)
+        ->method(
+            'pushHandler',
+            \DI\object(\Nofw\Error\Psr3ErrorHandler::class)
+                ->constructor(\DI\get(\Psr\Log\LoggerInterface::class))
+        )
+    ,
     \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $monolog = new \Monolog\Logger('nofw');
 
