@@ -100,8 +100,7 @@ return [
             'pushHandler',
             \DI\object(\Nofw\Error\Psr3ErrorHandler::class)
                 ->constructor(\DI\get(\Psr\Log\LoggerInterface::class))
-        )
-    ,
+        ),
     \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $monolog = new \Monolog\Logger('nofw');
 
