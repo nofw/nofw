@@ -1,16 +1,6 @@
 <?php
 
 return [
-    'env' => \DI\env('APP_ENV', 'prod'),
-    'debug' => \DI\factory(function (string $env, ?string $debug): bool {
-        if (null !== $debug) {
-            return 'true' === $debug ? true : false;
-        }
-
-        return 'dev' === $env;
-    })
-        ->parameter('env', \DI\get('env'))
-        ->parameter('debug', \DI\env('APP_DEBUG', null)),
     'view_paths' => [
         APP_ROOT.'/app/templates/',
     ],

@@ -4,13 +4,22 @@ define('APP_ROOT', realpath(__DIR__.'/../'));
 
 require APP_ROOT.'/vendor/autoload.php';
 
+// Resolve env and debug
 $env = getenv('APP_ENV') ?: 'prod';
+$debug = 'dev' === $env;
+if (false !== getenv('APP_DEBUG')) {
+    $debug = 'true' === getenv('APP_DEBUG') ? true : false;
+}
 
 // Container setup
 $containerBuilder = (new \DI\ContainerBuilder())
     ->useAnnotations(true)
     ->useAutowiring(true)
     ->addDefinitions(APP_ROOT.'/etc/container.php')
+    ->addDefinitions([
+        'env' => $env,
+        'debug' => $debug,
+    ])
 ;
 
 require APP_ROOT.'/etc/env/'.$env.'.php';
