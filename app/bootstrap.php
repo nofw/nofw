@@ -2,7 +2,7 @@
 
 define('APP_ROOT', realpath(__DIR__.'/../'));
 
-require APP_ROOT.'/vendor/autoload.php';
+require_once APP_ROOT.'/vendor/autoload.php';
 
 // Resolve env and debug
 $env = getenv('APP_ENV') ?: 'prod';
