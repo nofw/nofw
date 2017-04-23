@@ -4,14 +4,6 @@ define('APP_ROOT', realpath(__DIR__.'/../'));
 
 require APP_ROOT.'/vendor/autoload.php';
 
-// Load environment
-try {
-    $dotenv = new Dotenv\Dotenv(APP_ROOT);
-    $dotenv->load();
-} catch (\Dotenv\Exception\InvalidPathException $e) {
-    // Do nothing for now (.env is optional)
-}
-
 $env = getenv('APP_ENV') ?: 'prod';
 
 // Container setup
