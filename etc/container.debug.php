@@ -1,15 +1,13 @@
 <?php
 
 return [
-    \Whoops\RunInterface::class => \DI\decorate(function ($whoops, \Interop\Container\ContainerInterface $container) {
-        /** @var \Whoops\RunInterface $whoops */
+    \Whoops\RunInterface::class => \DI\decorate(function (\Whoops\RunInterface $whoops, \Interop\Container\ContainerInterface $container) {
         $handlers = $whoops->getHandlers();
 
         $whoops->clearHandlers();
 
         $whoops->pushHandler($container->get(\Whoops\Handler\PrettyPageHandler::class));
 
-        /** @var \Whoops\Handler\HandlerInterface $handler */
         foreach ($handlers as $handler) {
             $whoops->pushHandler($handler);
         }
@@ -30,8 +28,7 @@ return [
 
         return $prettyPage;
     },
-    \Psr\Log\LoggerInterface::class => \DI\decorate(function ($monolog) {
-        /** @var \Monolog\Logger $monolog */
+    \Psr\Log\LoggerInterface::class => \DI\decorate(function (\Monolog\Logger $monolog) {
         $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());
 
         return $monolog;
