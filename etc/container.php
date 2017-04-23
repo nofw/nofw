@@ -69,19 +69,8 @@ return [
     \Whoops\RunInterface::class => function (\Interop\Container\ContainerInterface $container) {
         $whoops = new \Whoops\Run();
 
-        $prettyPage = new \Whoops\Handler\PrettyPageHandler();
-
-        // Blacklist environment variables
-        if ($container->has('whoops_blacklist')) {
-            foreach ($container->get('whoops_blacklist') as $superGlobal => $values) {
-                foreach ($values as $value) {
-                    $prettyPage->blacklist($superGlobal, $value);
-                }
-            }
-        }
-
         $whoops
-            ->pushHandler($prettyPage)
+            ->pushHandler($container->get(\Whoops\Handler\PrettyPageHandler::class))
             ->pushHandler(function () use ($container) {
                 if ($container->get('debug')) {
                     return \Whoops\Handler\Handler::DONE;
@@ -94,6 +83,20 @@ return [
         ;
 
         return $whoops;
+    },
+    \Whoops\Handler\PrettyPageHandler::class => function (\Interop\Container\ContainerInterface $container) {
+        $prettyPage = new \Whoops\Handler\PrettyPageHandler();
+
+        // Blacklist environment variables
+        if ($container->has('whoops_blacklist')) {
+            foreach ($container->get('whoops_blacklist') as $superGlobal => $values) {
+                foreach ($values as $value) {
+                    $prettyPage->blacklist($superGlobal, $value);
+                }
+            }
+        }
+
+        return $prettyPage;
     },
     \Nofw\Error\ErrorHandler::class => \DI\object(\Nofw\Emperror\ErrorHandler::class)
         ->method(
