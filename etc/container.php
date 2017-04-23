@@ -82,7 +82,7 @@ return [
 
         $whoops
             ->pushHandler($prettyPage)
-            ->pushHandler(function() use ($container) {
+            ->pushHandler(function () use ($container) {
                 if ($container->get('debug')) {
                     return \Whoops\Handler\Handler::DONE;
                 }
