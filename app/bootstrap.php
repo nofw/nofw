@@ -15,10 +15,6 @@ $containerBuilder = (new \DI\ContainerBuilder())
 
 require APP_ROOT.'/etc/env/'.$env.'.php';
 
-if (file_exists(APP_ROOT.'/etc/env/local.php')) {
-    require APP_ROOT.'/etc/env/local.php';
-}
-
 $container = $containerBuilder->build();
 
 // Locale setup
