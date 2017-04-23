@@ -82,7 +82,14 @@ return [
 
         $whoops
             ->pushHandler($prettyPage)
-            ->pushHandler(new \Nofw\Foundation\Whoops\Handler\ProductionHandler($container->get('debug')))
+            ->pushHandler(function() use ($container) {
+                if ($container->get('debug')) {
+                    return \Whoops\Handler\Handler::DONE;
+                }
+
+                // Quit here in production
+                return \Whoops\Handler\Handler::QUIT;
+            })
             ->pushHandler($container->get(\Nofw\Foundation\Whoops\Handler\LogHandler::class))
         ;
 
