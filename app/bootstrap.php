@@ -22,6 +22,10 @@ $containerBuilder = (new \DI\ContainerBuilder())
     ])
 ;
 
+if ($debug) {
+    $containerBuilder->addDefinitions(APP_ROOT.'/etc/container.debug.php');
+}
+
 require APP_ROOT.'/etc/env/'.$env.'.php';
 
 $container = $containerBuilder->build();

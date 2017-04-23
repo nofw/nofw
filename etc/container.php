@@ -56,38 +56,12 @@ return [
     })
         ->parameter('debug', \DI\get('debug'))
         ->parameter('viewPaths', \DI\get('view_paths')),
-    \Whoops\RunInterface::class => function (\Interop\Container\ContainerInterface $container) {
-        $whoops = new \Whoops\Run();
-
-        $whoops
-            ->pushHandler($container->get(\Whoops\Handler\PrettyPageHandler::class))
-            ->pushHandler(function () use ($container) {
-                if ($container->get('debug')) {
-                    return \Whoops\Handler\Handler::DONE;
-                }
-
-                // Quit here in production
-                return \Whoops\Handler\Handler::QUIT;
-            })
-            ->pushHandler(new \Nofw\Emperror\Integration\Whoops\Handler($container->get(\Nofw\Error\ErrorHandler::class)))
-        ;
-
-        return $whoops;
-    },
-    \Whoops\Handler\PrettyPageHandler::class => function (\Interop\Container\ContainerInterface $container) {
-        $prettyPage = new \Whoops\Handler\PrettyPageHandler();
-
-        // Blacklist environment variables
-        if ($container->has('whoops_blacklist')) {
-            foreach ($container->get('whoops_blacklist') as $superGlobal => $values) {
-                foreach ($values as $value) {
-                    $prettyPage->blacklist($superGlobal, $value);
-                }
-            }
-        }
-
-        return $prettyPage;
-    },
+    \Whoops\RunInterface::class => \DI\object(\Whoops\Run::class)
+        ->method(
+            'pushHandler',
+            \DI\object(\Nofw\Emperror\Integration\Whoops\Handler::class)
+                ->constructor(\DI\get(\Nofw\Error\ErrorHandler::class))
+        ),
     \Nofw\Error\ErrorHandler::class => \DI\object(\Nofw\Emperror\ErrorHandler::class)
         ->method(
             'pushHandler',
@@ -98,10 +72,6 @@ return [
         $monolog = new \Monolog\Logger('nofw');
 
         $monolog->pushHandler(new \Monolog\Handler\StreamHandler(APP_ROOT.'/var/log/'.$container->get('env').'.log'));
-
-        if ($container->get('debug')) {
-            $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());
-        }
 
         return $monolog;
     },
