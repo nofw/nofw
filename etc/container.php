@@ -10,16 +10,13 @@ return [
         \DI\get(\Middlewares\Whoops::class),
         \DI\get(\Nofw\Foundation\Http\Middleware\HttpException::class),
         \DI\get(\Middlewares\PhpSession::class),
-        \DI\get(\Middlewares\FastRoute::class), // Last middleware in the chain
+        \DI\get(\Middlewares\FastRoute::class),
+        \DI\get(\Middlewares\RequestHandler::class), // Last middleware in the chain
     ],
     'dispatcher' => \DI\object(\Middlewares\Utils\Dispatcher::class)->constructor(\DI\get('middlewares')),
     \Interop\Http\Factory\StreamFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\StreamFactory::class),
     \Interop\Http\Factory\ResponseFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\ResponseFactory::class),
-    \Middlewares\FastRoute::class => \DI\object()->methodParameter(
-        'container',
-        'container',
-        \DI\get(\DI\Container::class)
-    ),
+    \Middlewares\RequestHandler::class => \DI\object()->constructor(\DI\get(\Middlewares\Utils\CallableResolver\ContainerResolver::class)),
     \Middlewares\Whoops::class => \DI\object()->constructor(\DI\get(\Whoops\RunInterface::class)),
     \FastRoute\Dispatcher::class => \DI\factory('FastRoute\\cachedDispatcher')
         ->parameter(

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1380eb64087dade91de03eb50339ff67",
+    "content-hash": "22d57eca3063da2ce7ddc072d89661a6",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -396,16 +396,16 @@
         },
         {
             "name": "middlewares/fast-route",
-            "version": "v0.6.0",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/middlewares/fast-route.git",
-                "reference": "a626ceab67493ce49aed98af5971466e6c4d7937"
+                "reference": "e9dbc34aef78f549ab3e5f2b3ef54b87fdd29e03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/middlewares/fast-route/zipball/a626ceab67493ce49aed98af5971466e6c4d7937",
-                "reference": "a626ceab67493ce49aed98af5971466e6c4d7937",
+                "url": "https://api.github.com/repos/middlewares/fast-route/zipball/e9dbc34aef78f549ab3e5f2b3ef54b87fdd29e03",
+                "reference": "e9dbc34aef78f549ab3e5f2b3ef54b87fdd29e03",
                 "shasum": ""
             },
             "require": {
@@ -446,7 +446,7 @@
                 "router",
                 "server"
             ],
-            "time": "2017-04-13T19:30:17+00:00"
+            "time": "2017-04-20T20:42:55+00:00"
         },
         {
             "name": "middlewares/php-session",
@@ -494,6 +494,60 @@
                 "session"
             ],
             "time": "2016-12-26T09:59:27+00:00"
+        },
+        {
+            "name": "middlewares/request-handler",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/middlewares/request-handler.git",
+                "reference": "b0769255b3e4f6919c6f4f68deaa26c5186ad002"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/middlewares/request-handler/zipball/b0769255b3e4f6919c6f4f68deaa26c5186ad002",
+                "reference": "b0769255b3e4f6919c6f4f68deaa26c5186ad002",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-middleware": "^0.4",
+                "middlewares/utils": "~0.10",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpunit/phpunit": "^5.5",
+                "psr/container": "^1.0",
+                "squizlabs/php_codesniffer": "^2.7",
+                "zendframework/zend-diactoros": "^1.3"
+            },
+            "suggest": {
+                "container-interop/container-interop": "Can be used to automatically resolve handlers"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Middlewares\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Middleware to execute request handlers",
+            "homepage": "https://github.com/middlewares/request-handler",
+            "keywords": [
+                "controller",
+                "handler",
+                "http",
+                "invoke",
+                "middleware",
+                "psr-15",
+                "psr-7",
+                "request",
+                "server"
+            ],
+            "time": "2017-04-20T19:28:38+00:00"
         },
         {
             "name": "middlewares/utils",
