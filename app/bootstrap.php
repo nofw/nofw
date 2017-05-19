@@ -8,7 +8,7 @@ require_once APP_ROOT.'/vendor/autoload.php';
 $env = getenv('APP_ENV') ?: 'prod';
 $debug = 'dev' === $env;
 if (false !== getenv('APP_DEBUG')) {
-    $debug = 'true' === getenv('APP_DEBUG') ? true : false;
+    $debug = 0 === strcasecmp('true', getenv('APP_DEBUG')) ? true : false;
 }
 
 // Container setup
