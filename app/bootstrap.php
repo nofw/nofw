@@ -5,7 +5,7 @@ define('APP_ROOT', realpath(__DIR__.'/../'));
 require_once APP_ROOT.'/vendor/autoload.php';
 
 // Resolve env and debug
-$env = getenv('APP_ENV') ?: 'prod';
+$env = strtolower(getenv('APP_ENV') ?: 'prod');
 $debug = 'dev' === $env;
 if (false !== getenv('APP_DEBUG')) {
     $debug = 0 === strcasecmp('true', getenv('APP_DEBUG')) ? true : false;
