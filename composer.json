@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "php-di/php-di": "^5.4",
+        "php-di/php-di": "^6.0@alpha",
         "doctrine/annotations": "^1.4",
         "nikic/fast-route": "^1.2",
         "zendframework/zend-diactoros": "^1.4",
@@ -36,7 +36,6 @@
         "vlucas/phpdotenv": "^2.4"
     },
     "suggest": {
-        "ext-apcu": "Recommended for caching in production",
         "nofw/session-handlers": "Advanced session handling, see https://nofw.io/docs/extras/advanced-session/"
     },
     "autoload": {

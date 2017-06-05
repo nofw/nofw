@@ -14,8 +14,8 @@ if (false !== getenv('APP_DEBUG')) {
 // Container setup
 $containerBuilder = (new \DI\ContainerBuilder())
     ->useAnnotations(true)
-    ->useAutowiring(true)
     ->addDefinitions(APP_ROOT.'/etc/container.php')
+    ->addDefinitions(APP_ROOT.'/etc/container.app.php')
     ->addDefinitions([
         'env' => $env,
         'debug' => $debug,

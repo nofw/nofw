@@ -4,39 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec61b4f2306e15e3e41b1f3df38b0151",
+    "content-hash": "25e02a43f6e70e58c4f261483bed0e42",
     "packages": [
-        {
-            "name": "container-interop/container-interop",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/container-interop/container-interop.git",
-                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/container-interop/container-interop/zipball/79cbf1341c22ec75643d841642dd5d6acd83bdb8",
-                "reference": "79cbf1341c22ec75643d841642dd5d6acd83bdb8",
-                "shasum": ""
-            },
-            "require": {
-                "psr/container": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Interop\\Container\\": "src/Interop/Container/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
-            "homepage": "https://github.com/container-interop/container-interop",
-            "time": "2017-02-14T19:40:03+00:00"
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.0",
@@ -945,20 +914,20 @@
         },
         {
             "name": "php-di/invoker",
-            "version": "1.3.3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/Invoker.git",
-                "reference": "1f4ca63b9abc66109e53b255e465d0ddb5c2e3f7"
+                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/1f4ca63b9abc66109e53b255e465d0ddb5c2e3f7",
-                "reference": "1f4ca63b9abc66109e53b255e465d0ddb5c2e3f7",
+                "url": "https://api.github.com/repos/PHP-DI/Invoker/zipball/540c27c86f663e20fe39a24cd72fa76cdb21d41a",
+                "reference": "540c27c86f663e20fe39a24cd72fa76cdb21d41a",
                 "shasum": ""
             },
             "require": {
-                "container-interop/container-interop": "~1.1"
+                "psr/container": "~1.0"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
@@ -984,31 +953,29 @@
                 "invoke",
                 "invoker"
             ],
-            "time": "2016-07-14T13:09:58+00:00"
+            "time": "2017-03-20T19:28:22+00:00"
         },
         {
             "name": "php-di/php-di",
-            "version": "5.4.6",
+            "version": "6.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "3f9255659595f3e289f473778bb6c51aa72abbbd"
+                "reference": "c2d4a52480446f8c235c10752ad7d1cc8cebb81a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/3f9255659595f3e289f473778bb6c51aa72abbbd",
-                "reference": "3f9255659595f3e289f473778bb6c51aa72abbbd",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/c2d4a52480446f8c235c10752ad7d1cc8cebb81a",
+                "reference": "c2d4a52480446f8c235c10752ad7d1cc8cebb81a",
                 "shasum": ""
             },
             "require": {
-                "container-interop/container-interop": "~1.2",
-                "php": ">=5.5.0",
-                "php-di/invoker": "^1.3.2",
+                "php": ">=7.0.0",
+                "php-di/invoker": "^2.0",
                 "php-di/phpdoc-reader": "^2.0.1",
-                "psr/container": "~1.0"
+                "psr/container": "^1.0"
             },
             "provide": {
-                "container-interop/container-interop-implementation": "^1.0",
                 "psr/container-implementation": "^1.0"
             },
             "replace": {
@@ -1016,16 +983,14 @@
             },
             "require-dev": {
                 "doctrine/annotations": "~1.2",
-                "doctrine/cache": "~1.4",
-                "mnapoli/phpunit-easymock": "~0.2.0",
-                "ocramius/proxy-manager": "~1.0|~2.0",
+                "mnapoli/phpunit-easymock": "~0.2.3",
+                "ocramius/proxy-manager": "~2.0.2",
                 "phpbench/phpbench": "@dev",
-                "phpunit/phpunit": "~4.5"
+                "phpunit/phpunit": "~5.7"
             },
             "suggest": {
                 "doctrine/annotations": "Install it if you want to use annotations (version ~1.2)",
-                "doctrine/cache": "Install it if you want to use the cache (version ~1.4)",
-                "ocramius/proxy-manager": "Install it if you want to use lazy injection (version ~1.0 or ~2.0)"
+                "ocramius/proxy-manager": "Install it if you want to use lazy injection (version ~2.0)"
             },
             "type": "library",
             "autoload": {
@@ -1047,7 +1012,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2017-12-03T08:20:27+00:00"
+            "time": "2017-06-04T10:42:20+00:00"
         },
         {
             "name": "php-di/phpdoc-reader",
@@ -3046,7 +3011,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "php-di/php-di": 15
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

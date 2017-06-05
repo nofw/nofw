@@ -13,11 +13,14 @@ return [
         \DI\get(\Middlewares\FastRoute::class),
         \DI\get(\Middlewares\RequestHandler::class), // Last middleware in the chain
     ],
-    'dispatcher' => \DI\object(\Middlewares\Utils\Dispatcher::class)->constructor(\DI\get('middlewares')),
-    \Interop\Http\Factory\StreamFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\StreamFactory::class),
-    \Interop\Http\Factory\ResponseFactoryInterface::class => \DI\get(\Middlewares\Utils\Factory\ResponseFactory::class),
-    \Middlewares\RequestHandler::class => \DI\object()->constructor(\DI\get(\Middlewares\Utils\CallableResolver\ContainerResolver::class)),
-    \Middlewares\Whoops::class => \DI\object()->constructor(\DI\get(\Whoops\RunInterface::class)),
+    'dispatcher' => \DI\create(\Middlewares\Utils\Dispatcher::class)->constructor(\DI\get('middlewares')),
+    \Interop\Http\Factory\StreamFactoryInterface::class => \DI\create(\Middlewares\Utils\Factory\StreamFactory::class),
+    \Interop\Http\Factory\ResponseFactoryInterface::class => \DI\create(\Middlewares\Utils\Factory\ResponseFactory::class),
+    \Middlewares\Utils\CallableResolver\CallableResolverInterface::class => \DI\autowire(\Middlewares\Utils\CallableResolver\ContainerResolver::class),
+    \Nofw\Foundation\Http\Middleware\ErrorPageContent::class => \DI\autowire(),
+    \Middlewares\Whoops::class => \DI\create()->constructor(\DI\get(\Whoops\RunInterface::class)),
+    \Middlewares\FastRoute::class => \DI\autowire(),
+    \Middlewares\RequestHandler::class => \DI\create()->constructor(\DI\get(\Middlewares\Utils\CallableResolver\CallableResolverInterface::class)),
     \FastRoute\Dispatcher::class => \DI\factory('FastRoute\\cachedDispatcher')
         ->parameter(
             'routeDefinitionCallback',
@@ -38,38 +41,35 @@ return [
                 ];
             })->parameter('debug', \DI\get('debug'))
         ),
-    \Twig_Environment::class => \DI\factory(function ($debug, $viewPaths) {
-        $twig = new \Twig_Environment(
-            new \Twig_Loader_Filesystem($viewPaths, APP_ROOT),
-            [
-                'debug' => $debug,
-                'cache' => $debug ? false : APP_ROOT.'/var/cache/twig/',
-            ]
-        );
-
-        $twig->addExtension(new \Twig_Extensions_Extension_I18n());
-
-        return $twig;
+    \Twig_LoaderInterface::class => \DI\create(\Twig_Loader_Filesystem::class)
+        ->constructor(\DI\get('view_paths'), \DI\value(APP_ROOT)),
+    'twig_options' => \DI\factory(function ($debug) {
+        return             [
+            'debug' => $debug,
+            'cache' => $debug ? false : APP_ROOT.'/var/cache/twig/',
+        ];
     })
-        ->parameter('debug', \DI\get('debug'))
-        ->parameter('viewPaths', \DI\get('view_paths')),
-    \Whoops\RunInterface::class => \DI\object(\Whoops\Run::class)
+        ->parameter('debug', \DI\get('debug')),
+    \Twig_Environment::class => \DI\create()
+        ->constructor(\DI\get(\Twig_LoaderInterface::class), \DI\get('twig_options'))
+        ->method('addExtension', \DI\create(\Twig_Extensions_Extension_I18n::class)),
+    \Whoops\RunInterface::class => \DI\create(\Whoops\Run::class)
         ->method(
             'pushHandler',
-            \DI\object(\Nofw\Emperror\Integration\Whoops\Handler::class)
+            \DI\create(\Nofw\Emperror\Integration\Whoops\Handler::class)
                 ->constructor(\DI\get(\Nofw\Error\ErrorHandler::class))
         ),
-    \Nofw\Error\ErrorHandler::class => \DI\object(\Nofw\Emperror\ErrorHandler::class)
+    \Nofw\Error\ErrorHandler::class => \DI\create(\Nofw\Emperror\ErrorHandler::class)
         ->method(
             'pushHandler',
-            \DI\object(\Nofw\Error\Psr3ErrorHandler::class)
+            \DI\create(\Nofw\Error\Psr3ErrorHandler::class)
                 ->constructor(\DI\get(\Psr\Log\LoggerInterface::class))
         ),
-    \Psr\Log\LoggerInterface::class => function (\Interop\Container\ContainerInterface $container) {
-        $monolog = new \Monolog\Logger('nofw');
-
-        $monolog->pushHandler(new \Monolog\Handler\StreamHandler(APP_ROOT.'/var/log/'.$container->get('env').'.log'));
-
-        return $monolog;
-    },
+    'monolog_handlers' => [
+        \DI\create(\Monolog\Handler\StreamHandler::class)
+            ->constructor(\DI\string(APP_ROOT.'/var/log/{env}.log')),
+    ],
+    'monolog_processors' => [],
+    \Psr\Log\LoggerInterface::class => \DI\create(\Monolog\Logger::class)
+        ->constructor('nofw', \DI\get('monolog_handlers'), \DI\get('monolog_processors')),
 ];
