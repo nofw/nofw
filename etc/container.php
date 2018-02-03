@@ -6,7 +6,7 @@ return [
     ],
     'locale' => \DI\env('APP_LOCALE', 'en_US.UTF-8'),
     'middlewares' => [
-        \DI\get(\Nofw\Foundation\Http\Middleware\ErrorPageContent::class),
+        \DI\autowire(\Nofw\Foundation\Http\Middleware\ErrorPageContent::class),
         \DI\get(\Middlewares\Whoops::class),
         \DI\get(\Nofw\Foundation\Http\Middleware\HttpException::class),
         \DI\get(\Middlewares\PhpSession::class),
@@ -24,13 +24,13 @@ return [
     \FastRoute\Dispatcher::class => \DI\factory('FastRoute\\cachedDispatcher')
         ->parameter(
             'routeDefinitionCallback',
-            function (\FastRoute\RouteCollector $r) {
+            \DI\value(function (\FastRoute\RouteCollector $r) {
                 $routeList = require APP_ROOT.'/etc/routes.php';
 
                 foreach ($routeList as $routeDef) {
                     $r->addRoute($routeDef[0], $routeDef[1], $routeDef[2]);
                 }
-            }
+            })
         )
         ->parameter(
             'options',

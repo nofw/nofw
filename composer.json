@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "php-di/php-di": "^6.0@alpha",
+        "php-di/php-di": "^6.0@beta",
         "doctrine/annotations": "^1.4",
         "nikic/fast-route": "^1.2",
         "zendframework/zend-diactoros": "^1.4",
