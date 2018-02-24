@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa4bdb58838f98bac0bbd07a6c2242c4",
+    "content-hash": "2d5b7e2d3d791620a2d44c14c258f703",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -763,20 +763,23 @@
         },
         {
             "name": "nikic/fast-route",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/FastRoute.git",
-                "reference": "b5f95749071c82a8e0f58586987627054400cdf6"
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/b5f95749071c82a8e0f58586987627054400cdf6",
-                "reference": "b5f95749071c82a8e0f58586987627054400cdf6",
+                "url": "https://api.github.com/repos/nikic/FastRoute/zipball/181d480e08d9476e61381e04a71b34dc0432e812",
+                "reference": "181d480e08d9476e61381e04a71b34dc0432e812",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35|~5.7"
             },
             "type": "library",
             "autoload": {
@@ -802,20 +805,20 @@
                 "router",
                 "routing"
             ],
-            "time": "2017-01-19T11:35:12+00:00"
+            "time": "2018-02-13T20:26:39+00:00"
         },
         {
             "name": "nikic/php-parser",
-            "version": "v3.1.4",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078"
+                "reference": "bb87e28e7d7b8d9a7fda231d37457c9210faf6ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e57b3a09784f846411aa7ed664eedb73e3399078",
-                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bb87e28e7d7b8d9a7fda231d37457c9210faf6ce",
+                "reference": "bb87e28e7d7b8d9a7fda231d37457c9210faf6ce",
                 "shasum": ""
             },
             "require": {
@@ -853,7 +856,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-01-25T21:31:33+00:00"
+            "time": "2018-02-28T20:30:58+00:00"
         },
         {
             "name": "nofw/emperror",
@@ -1066,16 +1069,16 @@
         },
         {
             "name": "php-di/php-di",
-            "version": "6.0.0-beta3",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "e4c85d7533525b22cab96cb7d3e64daeec8c1434"
+                "reference": "4773f7644b0c98ebfc22a1368e519ab5ac2e076c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/e4c85d7533525b22cab96cb7d3e64daeec8c1434",
-                "reference": "e4c85d7533525b22cab96cb7d3e64daeec8c1434",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/4773f7644b0c98ebfc22a1368e519ab5ac2e076c",
+                "reference": "4773f7644b0c98ebfc22a1368e519ab5ac2e076c",
                 "shasum": ""
             },
             "require": {
@@ -1125,24 +1128,24 @@
                 "ioc",
                 "psr11"
             ],
-            "time": "2018-01-20T09:11:49+00:00"
+            "time": "2018-02-20T07:27:46+00:00"
         },
         {
             "name": "php-di/phpdoc-reader",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PhpDocReader.git",
-                "reference": "83f5ead159defccfa8e7092e5b6c1c533b326d68"
+                "reference": "7d0de60b9341933c8afd172a6255cd7557601e0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/83f5ead159defccfa8e7092e5b6c1c533b326d68",
-                "reference": "83f5ead159defccfa8e7092e5b6c1c533b326d68",
+                "url": "https://api.github.com/repos/PHP-DI/PhpDocReader/zipball/7d0de60b9341933c8afd172a6255cd7557601e0e",
+                "reference": "7d0de60b9341933c8afd172a6255cd7557601e0e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.6"
@@ -1162,7 +1165,7 @@
                 "phpdoc",
                 "reflection"
             ],
-            "time": "2015-11-29T10:34:25+00:00"
+            "time": "2018-02-18T17:39:01+00:00"
         },
         {
             "name": "psr/container",
@@ -3232,9 +3235,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "php-di/php-di": 10
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
