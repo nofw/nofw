@@ -1,7 +1,7 @@
 <?php
 
 return [
-    \Whoops\RunInterface::class => \DI\decorate(function (\Whoops\RunInterface $whoops, \Interop\Container\ContainerInterface $container) {
+    \Whoops\RunInterface::class => \DI\decorate(function (\Whoops\RunInterface $whoops, \Psr\Container\ContainerInterface $container) {
         $handlers = $whoops->getHandlers();
 
         $whoops->clearHandlers();
@@ -14,7 +14,7 @@ return [
 
         return $whoops;
     }),
-    \Whoops\Handler\PrettyPageHandler::class => function (\Interop\Container\ContainerInterface $container) {
+    \Whoops\Handler\PrettyPageHandler::class => function (\Psr\Container\ContainerInterface $container) {
         $prettyPage = new \Whoops\Handler\PrettyPageHandler();
 
         // Blacklist environment variables
@@ -28,9 +28,7 @@ return [
 
         return $prettyPage;
     },
-    \Psr\Log\LoggerInterface::class => \DI\decorate(function (\Monolog\Logger $monolog) {
-        $monolog->pushHandler(new \Monolog\Handler\BrowserConsoleHandler());
-
-        return $monolog;
-    }),
+    'monolog_handlers' => \DI\add([
+        \DI\create(\Monolog\Handler\BrowserConsoleHandler::class),
+    ]),
 ];
